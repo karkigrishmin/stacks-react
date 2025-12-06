@@ -33,9 +33,7 @@ describe('useTransactionStatus', () => {
   });
 
   it('should return initial state when no txId provided', () => {
-    const { result } = renderHook(() =>
-      useTransactionStatus({ txId: null })
-    );
+    const { result } = renderHook(() => useTransactionStatus({ txId: null }));
 
     expect(result.current.status).toBeNull();
     expect(result.current.isConfirmed).toBe(false);

@@ -7,7 +7,11 @@ import { beforeEach } from 'vitest';
 // Initial store state for resetting between tests
 const initialStoreState: Omit<
   WalletStore,
-  'setConnecting' | 'setConnected' | 'setDisconnected' | 'setNetwork' | 'setError'
+  | 'setConnecting'
+  | 'setConnected'
+  | 'setDisconnected'
+  | 'setNetwork'
+  | 'setError'
 > = {
   isConnected: false,
   isConnecting: false,
@@ -81,9 +85,10 @@ export function createMockBalance(stxAmount: number, sbtcAmount = 0) {
     fungible_tokens:
       sbtcAmount > 0
         ? {
-            'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token::sbtc-token': {
-              balance: String(sbtcAmount * 100_000_000), // Convert to satoshis
-            },
+            'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token::sbtc-token':
+              {
+                balance: String(sbtcAmount * 100_000_000), // Convert to satoshis
+              },
           }
         : {},
   };

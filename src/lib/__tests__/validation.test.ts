@@ -189,9 +189,7 @@ describe('validation schemas', () => {
     });
 
     it('should throw on invalid response', () => {
-      expect(() => parseTxResponse({})).toThrow(
-        'Invalid transaction response'
-      );
+      expect(() => parseTxResponse({})).toThrow('Invalid transaction response');
     });
   });
 

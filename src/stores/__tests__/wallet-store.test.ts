@@ -56,7 +56,9 @@ describe('wallet-store', () => {
     });
 
     it('should set connected state with both addresses', () => {
-      useWalletStore.getState().setConnected(MOCK_STX_ADDRESS, MOCK_BTC_ADDRESS);
+      useWalletStore
+        .getState()
+        .setConnected(MOCK_STX_ADDRESS, MOCK_BTC_ADDRESS);
 
       const state = useWalletStore.getState();
       expect(state.isConnected).toBe(true);

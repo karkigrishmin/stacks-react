@@ -54,9 +54,7 @@ describe('useBalance', () => {
   it('should accept custom address parameter', async () => {
     const customAddress = 'ST2CY5V39NHDPWSXMW9QDT3HC3GD6Q6XX4CFRK9AG';
 
-    const { result } = renderHook(() =>
-      useBalance({ address: customAddress })
-    );
+    const { result } = renderHook(() => useBalance({ address: customAddress }));
 
     await waitFor(() => {
       expect(result.current.isLoading).toBe(false);

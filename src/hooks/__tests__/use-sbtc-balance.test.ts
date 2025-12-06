@@ -20,7 +20,8 @@ vi.mock('../use-wallet', () => ({
 const mockUseReadContract = vi.fn();
 
 vi.mock('../use-read-contract', () => ({
-  useReadContract: (options: { enabled?: boolean }) => mockUseReadContract(options),
+  useReadContract: (options: { enabled?: boolean }) =>
+    mockUseReadContract(options),
 }));
 
 describe('useSbtcBalance', () => {
