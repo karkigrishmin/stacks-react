@@ -20,7 +20,9 @@ export function BalanceDisplay({
 
   if (isLoading) {
     return (
-      <span className={cn('text-sm text-muted-foreground animate-pulse', className)}>
+      <span
+        className={cn('animate-pulse text-sm text-muted-foreground', className)}
+      >
         Loading...
       </span>
     );

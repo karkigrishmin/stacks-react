@@ -37,7 +37,11 @@ export function DocsLayout() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
             <Link to="/">
               <Logo showText />
@@ -50,7 +54,11 @@ export function DocsLayout() {
               onClick={() => setDarkMode((prev) => !prev)}
               aria-label="Toggle theme"
             >
-              {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {darkMode ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
@@ -65,7 +73,7 @@ export function DocsLayout() {
         {/* Mobile sidebar */}
         <div
           className={cn(
-            'fixed inset-0 z-40 bg-background md:hidden transition-transform',
+            'fixed inset-0 z-40 bg-background transition-transform md:hidden',
             mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           )}
         >
@@ -75,7 +83,7 @@ export function DocsLayout() {
         </div>
 
         {/* Content */}
-        <main className="flex-1 min-w-0 px-4 py-8 md:px-8 md:py-12">
+        <main className="min-w-0 flex-1 px-4 py-8 md:px-8 md:py-12">
           <div className="mx-auto max-w-3xl">
             <Outlet />
           </div>

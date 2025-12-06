@@ -80,7 +80,8 @@ export function useBalance(options: UseBalanceOptions = {}): UseBalanceReturn {
       if (err instanceof Error && err.name === 'AbortError') {
         return;
       }
-      const fetchError = err instanceof Error ? err : new Error('Failed to fetch balance');
+      const fetchError =
+        err instanceof Error ? err : new Error('Failed to fetch balance');
       setError(fetchError);
       setIsError(true);
       setBalance(null);

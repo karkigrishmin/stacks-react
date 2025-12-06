@@ -75,9 +75,7 @@ export function ConnectButton({
           <div className="flex items-center gap-2">
             {showNetwork && <NetworkBadge network={network} />}
             {showBalance && <BalanceDisplay />}
-            {address && (
-              <AddressDisplay address={address} copyable={false} />
-            )}
+            {address && <AddressDisplay address={address} copyable={false} />}
           </div>
           <ChevronDown className="h-4 w-4" />
         </Button>

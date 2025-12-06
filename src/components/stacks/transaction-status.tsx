@@ -1,7 +1,16 @@
 import { cn } from '@/lib/utils';
-import { useTransactionStatus, type TxStatus } from '@/hooks/use-transaction-status';
+import {
+  useTransactionStatus,
+  type TxStatus,
+} from '@/hooks/use-transaction-status';
 import { useWallet } from '@/hooks/use-wallet';
-import { Loader2, CheckCircle2, XCircle, HelpCircle, ExternalLink } from 'lucide-react';
+import {
+  Loader2,
+  CheckCircle2,
+  XCircle,
+  HelpCircle,
+  ExternalLink,
+} from 'lucide-react';
 
 interface TransactionStatusProps {
   txId: string | null;
@@ -85,9 +94,8 @@ export function TransactionStatus({
     );
   }
 
-  const config = isLoading && !status
-    ? getStatusConfig(null)
-    : getStatusConfig(status);
+  const config =
+    isLoading && !status ? getStatusConfig(null) : getStatusConfig(status);
 
   return (
     <div className={cn('flex items-center gap-2 text-sm', className)}>
@@ -98,7 +106,7 @@ export function TransactionStatus({
           href={getExplorerUrl(txId, network)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
         >
           <ExternalLink className="h-3 w-3" />
           <span className="sr-only">View on explorer</span>

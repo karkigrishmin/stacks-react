@@ -25,7 +25,10 @@ export function useWallet() {
       store.setConnecting(true);
       store.setError(null);
       try {
-        await request({ provider, forceWalletSelect: !provider }, 'getAddresses');
+        await request(
+          { provider, forceWalletSelect: !provider },
+          'getAddresses'
+        );
         const storage = getLocalStorage();
         const stxAddress = storage?.addresses?.stx?.[0]?.address;
         const btcAddress = storage?.addresses?.btc?.[0]?.address;
@@ -43,7 +46,8 @@ export function useWallet() {
             error.message.includes("'in' operator") ||
             error.message.includes('undefined')
           ) {
-            message = 'Wallet not found. Please install a Stacks wallet extension.';
+            message =
+              'Wallet not found. Please install a Stacks wallet extension.';
           } else {
             message = error.message;
           }

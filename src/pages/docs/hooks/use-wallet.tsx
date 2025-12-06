@@ -59,7 +59,7 @@ export function DocsUseWallet() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Return Value</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -72,42 +72,64 @@ export function DocsUseWallet() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isConnected</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">Whether a wallet is connected</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Whether a wallet is connected
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isConnecting</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">Whether connection is in progress</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Whether connection is in progress
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">address</td>
                 <td className="px-4 py-2 font-mono text-xs">string | null</td>
-                <td className="px-4 py-2 text-muted-foreground">Connected wallet address</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Connected wallet address
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">network</td>
-                <td className="px-4 py-2 font-mono text-xs">'mainnet' | 'testnet'</td>
-                <td className="px-4 py-2 text-muted-foreground">Current network</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  'mainnet' | 'testnet'
+                </td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Current network
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">connect</td>
-                <td className="px-4 py-2 font-mono text-xs">(provider?) =&gt; Promise</td>
-                <td className="px-4 py-2 text-muted-foreground">Connect to wallet</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  (provider?) =&gt; Promise
+                </td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Connect to wallet
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">disconnect</td>
                 <td className="px-4 py-2 font-mono text-xs">() =&gt; void</td>
-                <td className="px-4 py-2 text-muted-foreground">Disconnect wallet</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Disconnect wallet
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">setNetwork</td>
-                <td className="px-4 py-2 font-mono text-xs">(network) =&gt; void</td>
-                <td className="px-4 py-2 text-muted-foreground">Switch network</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  (network) =&gt; void
+                </td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Switch network
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">error</td>
                 <td className="px-4 py-2 font-mono text-xs">Error | null</td>
-                <td className="px-4 py-2 text-muted-foreground">Connection error if any</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Connection error if any
+                </td>
               </tr>
             </tbody>
           </table>
@@ -115,9 +137,12 @@ export function DocsUseWallet() {
       </div>
 
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold">Connecting with a Specific Provider</h2>
+        <h2 className="text-2xl font-semibold">
+          Connecting with a Specific Provider
+        </h2>
         <p className="text-muted-foreground">
-          You can pass a provider to the connect function to connect to a specific wallet:
+          You can pass a provider to the connect function to connect to a
+          specific wallet:
         </p>
         <CodeBlock
           code={`import { getProviderFromId } from '@stacks/connect-ui';

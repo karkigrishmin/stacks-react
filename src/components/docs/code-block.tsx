@@ -26,7 +26,7 @@ export function CodeBlock({
   };
 
   return (
-    <div className="relative rounded-lg border bg-muted/30 overflow-hidden">
+    <div className="relative overflow-hidden rounded-lg border bg-muted/30">
       {filename && (
         <div className="flex items-center justify-between border-b px-4 py-2 text-sm text-muted-foreground">
           <span className="font-mono">{filename}</span>
@@ -36,7 +36,7 @@ export function CodeBlock({
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-2 top-2 h-8 w-8 opacity-0 hover:opacity-100 focus:opacity-100 transition-opacity z-10"
+          className="absolute right-2 top-2 z-10 h-8 w-8 opacity-0 transition-opacity hover:opacity-100 focus:opacity-100"
           onClick={handleCopy}
           aria-label={copied ? 'Copied' : 'Copy code'}
         >
@@ -46,16 +46,20 @@ export function CodeBlock({
             <Copy className="h-4 w-4" />
           )}
         </Button>
-        <Highlight theme={themes.oneDark} code={code.trim()} language={language}>
+        <Highlight
+          theme={themes.oneDark}
+          code={code.trim()}
+          language={language}
+        >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className={cn(className, 'p-4 overflow-x-auto text-sm')}
+              className={cn(className, 'overflow-x-auto p-4 text-sm')}
               style={style}
             >
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })}>
                   {showLineNumbers && (
-                    <span className="inline-block w-8 text-right mr-4 text-muted-foreground select-none">
+                    <span className="mr-4 inline-block w-8 select-none text-right text-muted-foreground">
                       {i + 1}
                     </span>
                   )}

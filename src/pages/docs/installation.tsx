@@ -12,7 +12,7 @@ export function DocsInstallation() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Prerequisites</h2>
-        <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+        <ul className="list-inside list-disc space-y-2 text-muted-foreground">
           <li>React 18 or later</li>
           <li>Node.js 18 or later</li>
           <li>npm, yarn, pnpm, or bun</li>
@@ -21,9 +21,7 @@ export function DocsInstallation() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Install Package</h2>
-        <p className="text-muted-foreground">
-          Choose your package manager:
-        </p>
+        <p className="text-muted-foreground">Choose your package manager:</p>
         <div className="space-y-3">
           <CodeBlock code="npm install stacks-kit" language="bash" />
           <CodeBlock code="yarn add stacks-kit" language="bash" />
@@ -58,8 +56,8 @@ export function DocsInstallation() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">TypeScript</h2>
         <p className="text-muted-foreground">
-          stacks-kit is written in TypeScript and includes type definitions out of the box.
-          No additional setup required.
+          stacks-kit is written in TypeScript and includes type definitions out
+          of the box. No additional setup required.
         </p>
       </div>
     </div>

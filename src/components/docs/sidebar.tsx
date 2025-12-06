@@ -20,7 +20,10 @@ const navigation: NavItem[] = [
       { title: 'useStxTransfer', href: '/docs/hooks/use-stx-transfer' },
       { title: 'useContractCall', href: '/docs/hooks/use-contract-call' },
       { title: 'useReadContract', href: '/docs/hooks/use-read-contract' },
-      { title: 'useTransactionStatus', href: '/docs/hooks/use-transaction-status' },
+      {
+        title: 'useTransactionStatus',
+        href: '/docs/hooks/use-transaction-status',
+      },
       { title: 'useSbtcBalance', href: '/docs/hooks/use-sbtc-balance' },
     ],
   },
@@ -66,17 +69,17 @@ function NavItemComponent({ item }: { item: NavItem }) {
           />
         </button>
         {isOpen && (
-          <ul className="ml-3 border-l pl-3 space-y-1">
+          <ul className="ml-3 space-y-1 border-l pl-3">
             {item.items.map((subItem) => (
               <li key={subItem.title}>
                 <NavLink
                   to={subItem.href!}
                   className={({ isActive }) =>
                     cn(
-                      'block px-3 py-1.5 text-sm rounded-md transition-colors',
+                      'block rounded-md px-3 py-1.5 text-sm transition-colors',
                       isActive
-                        ? 'bg-muted text-foreground font-medium'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                        ? 'bg-muted font-medium text-foreground'
+                        : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
                     )
                   }
                 >
@@ -97,10 +100,10 @@ function NavItemComponent({ item }: { item: NavItem }) {
         end
         className={({ isActive }) =>
           cn(
-            'block px-3 py-2 text-sm rounded-md transition-colors',
+            'block rounded-md px-3 py-2 text-sm transition-colors',
             isActive
-              ? 'bg-muted text-foreground font-medium'
-              : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+              ? 'bg-muted font-medium text-foreground'
+              : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
           )
         }
       >

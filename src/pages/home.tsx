@@ -37,7 +37,11 @@ export function HomePage() {
               onClick={() => setDarkMode((prev) => !prev)}
               aria-label="Toggle theme"
             >
-              {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {darkMode ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
             <ConnectButton showBalance showNetwork />
           </div>
@@ -49,14 +53,15 @@ export function HomePage() {
         <div className="mx-auto max-w-4xl space-y-12 text-center">
           {/* Headline */}
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
               The React toolkit for{' '}
               <span className="bg-gradient-to-r from-[hsl(265,83%,57%)] to-[hsl(32,95%,53%)] bg-clip-text text-transparent">
                 Stacks & Bitcoin L2
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Connect wallets, send STX, and call contracts with beautiful UI and simple hooks.
+            <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
+              Connect wallets, send STX, and call contracts with beautiful UI
+              and simple hooks.
             </p>
           </div>
 
@@ -64,7 +69,7 @@ export function HomePage() {
           <InstallCommand />
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" asChild>
               <a href="/docs">
                 Get Started
@@ -116,7 +121,7 @@ function InstallCommand() {
         <Button
           variant="ghost"
           size="icon"
-          className="h-8 w-8 ml-2"
+          className="ml-2 h-8 w-8"
           onClick={handleCopy}
           aria-label={copied ? 'Copied' : 'Copy to clipboard'}
         >
@@ -141,13 +146,13 @@ function TechStack() {
   ];
 
   return (
-    <div className="pt-8 border-t">
-      <p className="text-sm text-muted-foreground mb-4">Built with</p>
+    <div className="border-t pt-8">
+      <p className="mb-4 text-sm text-muted-foreground">Built with</p>
       <div className="flex flex-wrap items-center justify-center gap-4">
         {techs.map((tech) => (
           <div
             key={tech.name}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full border bg-background text-sm"
+            className="flex items-center gap-2 rounded-full border bg-background px-3 py-1.5 text-sm"
           >
             <div
               className="h-2 w-2 rounded-full"

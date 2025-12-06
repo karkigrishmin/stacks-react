@@ -10,7 +10,10 @@ interface ErrorBoundaryState {
   error: Error | null;
 }
 
-export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -36,9 +39,9 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-background">
-          <div className="max-w-md mx-auto p-8 text-center space-y-6">
-            <div className="flex h-16 w-16 mx-auto items-center justify-center rounded-full bg-destructive/10">
+        <div className="flex min-h-screen items-center justify-center bg-background">
+          <div className="mx-auto max-w-md space-y-6 p-8 text-center">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
               <svg
                 className="h-8 w-8 text-destructive"
                 fill="none"
@@ -59,25 +62,24 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
                 Something went wrong
               </h1>
               <p className="text-muted-foreground">
-                An unexpected error occurred. Please try again or reload the page.
+                An unexpected error occurred. Please try again or reload the
+                page.
               </p>
             </div>
 
             {this.state.error && (
-              <div className="p-4 rounded-lg bg-muted text-left">
-                <p className="text-sm font-mono text-muted-foreground break-all">
+              <div className="rounded-lg bg-muted p-4 text-left">
+                <p className="break-all font-mono text-sm text-muted-foreground">
                   {this.state.error.message}
                 </p>
               </div>
             )}
 
-            <div className="flex gap-3 justify-center">
+            <div className="flex justify-center gap-3">
               <Button variant="outline" onClick={this.handleRetry}>
                 Try Again
               </Button>
-              <Button onClick={this.handleReload}>
-                Reload Page
-              </Button>
+              <Button onClick={this.handleReload}>Reload Page</Button>
             </div>
           </div>
         </div>

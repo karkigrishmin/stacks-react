@@ -67,7 +67,7 @@ function MintNFT() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Parameters</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -80,27 +80,39 @@ function MintNFT() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">contractAddress</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
-                <td className="px-4 py-2 text-muted-foreground">Contract deployer address</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Contract deployer address
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">contractName</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
-                <td className="px-4 py-2 text-muted-foreground">Name of the contract</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Name of the contract
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">functionName</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
-                <td className="px-4 py-2 text-muted-foreground">Function to call</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Function to call
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">functionArgs</td>
                 <td className="px-4 py-2 font-mono text-xs">ClarityValue[]</td>
-                <td className="px-4 py-2 text-muted-foreground">Arguments using @stacks/transactions types</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Arguments using @stacks/transactions types
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">postConditions</td>
-                <td className="px-4 py-2 font-mono text-xs">PostCondition[]?</td>
-                <td className="px-4 py-2 text-muted-foreground">Optional post-conditions for safety</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  PostCondition[]?
+                </td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Optional post-conditions for safety
+                </td>
               </tr>
             </tbody>
           </table>
@@ -109,7 +121,7 @@ function MintNFT() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Return Value</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -121,33 +133,47 @@ function MintNFT() {
             <tbody className="divide-y">
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">call</td>
-                <td className="px-4 py-2 font-mono text-xs">(params) =&gt; Promise</td>
-                <td className="px-4 py-2 text-muted-foreground">Function to initiate contract call</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  (params) =&gt; Promise
+                </td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Function to initiate contract call
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isLoading</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">Whether call is in progress</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Whether call is in progress
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isSuccess</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">Whether call succeeded</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Whether call succeeded
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">txId</td>
                 <td className="px-4 py-2 font-mono text-xs">string | null</td>
-                <td className="px-4 py-2 text-muted-foreground">Transaction ID if successful</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Transaction ID if successful
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">error</td>
                 <td className="px-4 py-2 font-mono text-xs">Error | null</td>
-                <td className="px-4 py-2 text-muted-foreground">Error if call failed</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Error if call failed
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">reset</td>
                 <td className="px-4 py-2 font-mono text-xs">() =&gt; void</td>
-                <td className="px-4 py-2 text-muted-foreground">Reset state for new call</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Reset state for new call
+                </td>
               </tr>
             </tbody>
           </table>
@@ -157,7 +183,8 @@ function MintNFT() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Clarity Value Types</h2>
         <p className="text-muted-foreground">
-          Use these helpers from @stacks/transactions to create function arguments:
+          Use these helpers from @stacks/transactions to create function
+          arguments:
         </p>
         <CodeBlock
           code={`import {

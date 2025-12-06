@@ -48,7 +48,7 @@ export function AddressDisplay({
       disabled={!copyable}
       className={cn(
         'inline-flex items-center gap-1.5 font-mono text-sm',
-        copyable && 'cursor-pointer hover:text-primary transition-colors',
+        copyable && 'cursor-pointer transition-colors hover:text-primary',
         className
       )}
     >

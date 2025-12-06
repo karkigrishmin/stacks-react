@@ -1,5 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { cvToHex, hexToCV, cvToValue, type ClarityValue } from '@stacks/transactions';
+import {
+  cvToHex,
+  hexToCV,
+  cvToValue,
+  type ClarityValue,
+} from '@stacks/transactions';
 import { useWallet } from './use-wallet';
 import { parseReadContractResponse } from '@/lib/validation';
 
@@ -110,7 +115,8 @@ export function useReadContract<T = unknown>(
       if (err instanceof Error && err.name === 'AbortError') {
         return;
       }
-      const fetchError = err instanceof Error ? err : new Error('Failed to read contract');
+      const fetchError =
+        err instanceof Error ? err : new Error('Failed to read contract');
       setError(fetchError);
       setIsError(true);
       setData(null);

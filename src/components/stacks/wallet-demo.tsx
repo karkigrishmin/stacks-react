@@ -7,20 +7,14 @@ interface WalletDemoProps {
 
 export function WalletDemo({ className, paused = false }: WalletDemoProps) {
   return (
-    <div
-      className={cn(
-        'relative w-full max-w-sm mx-auto',
-        'group',
-        className
-      )}
-    >
+    <div className={cn('relative mx-auto w-full max-w-sm', 'group', className)}>
       {/* Glow effect */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-[hsl(var(--stacks-purple))] to-[hsl(var(--bitcoin-orange))] opacity-20 blur-2xl rounded-3xl" />
+      <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-[hsl(var(--stacks-purple))] to-[hsl(var(--bitcoin-orange))] opacity-20 blur-2xl" />
 
       {/* Demo container */}
       <div
         className={cn(
-          'relative rounded-xl border bg-card shadow-xl overflow-hidden',
+          'relative overflow-hidden rounded-xl border bg-card shadow-xl',
           '[animation:wallet-demo_6s_ease-in-out_infinite]',
           paused && '[animation-play-state:paused]',
           'group-hover:[animation-play-state:paused]',
@@ -28,7 +22,7 @@ export function WalletDemo({ className, paused = false }: WalletDemoProps) {
         )}
       >
         {/* Header */}
-        <div className="px-6 py-4 border-b">
+        <div className="border-b px-6 py-4">
           <h3 className="text-lg font-semibold">Connect Wallet</h3>
           <p className="text-sm text-muted-foreground">
             Choose a wallet to connect
@@ -36,11 +30,11 @@ export function WalletDemo({ className, paused = false }: WalletDemoProps) {
         </div>
 
         {/* Wallet options */}
-        <div className="p-4 space-y-3">
+        <div className="space-y-3 p-4">
           {/* Leather wallet */}
           <div
             className={cn(
-              'relative flex items-center gap-3 p-4 rounded-lg border bg-background',
+              'relative flex items-center gap-3 rounded-lg border bg-background p-4',
               '[animation:wallet-demo-wallet-1_6s_ease-in-out_infinite]',
               paused && '[animation-play-state:paused]',
               'group-hover:[animation-play-state:paused]'
@@ -54,7 +48,7 @@ export function WalletDemo({ className, paused = false }: WalletDemoProps) {
             {/* Selected highlight */}
             <div
               className={cn(
-                'absolute inset-0 rounded-lg border-2 border-[hsl(var(--stacks-purple))] pointer-events-none',
+                'pointer-events-none absolute inset-0 rounded-lg border-2 border-[hsl(var(--stacks-purple))]',
                 '[animation:wallet-demo-select_6s_ease-in-out_infinite]',
                 paused && '[animation-play-state:paused]',
                 'group-hover:[animation-play-state:paused]'
@@ -70,14 +64,14 @@ export function WalletDemo({ className, paused = false }: WalletDemoProps) {
                 'group-hover:[animation-play-state:paused]'
               )}
             >
-              <div className="h-4 w-4 border-2 border-muted-foreground border-t-transparent rounded-full [animation:wallet-demo-spin_0.6s_linear_infinite]" />
+              <div className="h-4 w-4 rounded-full border-2 border-muted-foreground border-t-transparent [animation:wallet-demo-spin_0.6s_linear_infinite]" />
             </div>
           </div>
 
           {/* Xverse wallet */}
           <div
             className={cn(
-              'flex items-center gap-3 p-4 rounded-lg border bg-background',
+              'flex items-center gap-3 rounded-lg border bg-background p-4',
               '[animation:wallet-demo-wallet-2_6s_ease-in-out_infinite]',
               paused && '[animation-play-state:paused]',
               'group-hover:[animation-play-state:paused]'
@@ -99,14 +93,14 @@ export function WalletDemo({ className, paused = false }: WalletDemoProps) {
             'group-hover:[animation-play-state:paused]'
           )}
         >
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(var(--success))] text-white mb-4">
+          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-[hsl(var(--success))] text-white">
             <CheckIcon />
           </div>
-          <p className="font-semibold mb-1">Connected</p>
-          <p className="text-sm text-muted-foreground font-mono">
+          <p className="mb-1 font-semibold">Connected</p>
+          <p className="font-mono text-sm text-muted-foreground">
             SP2J6...8V3PB
           </p>
-          <p className="text-sm text-muted-foreground mt-2">
+          <p className="mt-2 text-sm text-muted-foreground">
             Balance: 1,234.56 STX
           </p>
         </div>

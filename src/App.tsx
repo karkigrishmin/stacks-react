@@ -25,12 +25,30 @@ function App() {
           <Route path="installation" element={<DocsInstallation />} />
           <Route path="hooks/use-wallet" element={<DocsUseWallet />} />
           <Route path="hooks/use-balance" element={<DocsUseBalance />} />
-          <Route path="hooks/use-stx-transfer" element={<DocsUseStxTransfer />} />
-          <Route path="hooks/use-contract-call" element={<DocsUseContractCall />} />
-          <Route path="hooks/use-read-contract" element={<DocsUseReadContract />} />
-          <Route path="hooks/use-transaction-status" element={<DocsUseTransactionStatus />} />
-          <Route path="hooks/use-sbtc-balance" element={<DocsUseSbtcBalance />} />
-          <Route path="components/connect-button" element={<DocsConnectButton />} />
+          <Route
+            path="hooks/use-stx-transfer"
+            element={<DocsUseStxTransfer />}
+          />
+          <Route
+            path="hooks/use-contract-call"
+            element={<DocsUseContractCall />}
+          />
+          <Route
+            path="hooks/use-read-contract"
+            element={<DocsUseReadContract />}
+          />
+          <Route
+            path="hooks/use-transaction-status"
+            element={<DocsUseTransactionStatus />}
+          />
+          <Route
+            path="hooks/use-sbtc-balance"
+            element={<DocsUseSbtcBalance />}
+          />
+          <Route
+            path="components/connect-button"
+            element={<DocsConnectButton />}
+          />
           <Route path="components/wallet-modal" element={<DocsWalletModal />} />
         </Route>
       </Routes>

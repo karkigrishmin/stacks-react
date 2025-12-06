@@ -13,11 +13,11 @@ function LiveExample() {
   });
 
   return (
-    <div className="rounded-lg border p-4 space-y-4">
+    <div className="space-y-4 rounded-lg border p-4">
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Live Example</h3>
         <div className="flex items-center gap-2">
-          <div className="flex rounded-md border overflow-hidden text-xs">
+          <div className="flex overflow-hidden rounded-md border text-xs">
             <button
               onClick={() => setNetwork('mainnet')}
               className={`px-2 py-1 ${network === 'mainnet' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
@@ -37,7 +37,9 @@ function LiveExample() {
             onClick={() => refetch()}
             disabled={isLoading}
           >
-            <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
+            <RefreshCw
+              className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`}
+            />
           </Button>
         </div>
       </div>
@@ -51,7 +53,7 @@ function LiveExample() {
           value={customAddress}
           onChange={(e) => setCustomAddress(e.target.value)}
           placeholder={address || 'SP... or ST...'}
-          className="w-full px-3 py-2 text-sm rounded-md border bg-background"
+          className="w-full rounded-md border bg-background px-3 py-2 text-sm"
         />
       </div>
 
@@ -77,10 +79,10 @@ function LiveExample() {
         )}
       </div>
 
-      <div className="text-xs text-muted-foreground space-y-1">
+      <div className="space-y-1 text-xs text-muted-foreground">
         <p>
           <span className="font-medium">Contract ({network}):</span>{' '}
-          <code className="bg-muted px-1 rounded">
+          <code className="rounded bg-muted px-1">
             {network === 'mainnet'
               ? 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token'
               : 'ST1F7QA2MDF17S807EPA36TSS8AMEFY4KA9TVGWXT.sbtc-token'}
@@ -129,7 +131,7 @@ export function DocsUseSbtcBalance() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Options</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -160,7 +162,7 @@ export function DocsUseSbtcBalance() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Return Value</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -200,7 +202,9 @@ export function DocsUseSbtcBalance() {
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">refetch</td>
-                <td className="px-4 py-2 font-mono text-xs">() =&gt; Promise</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  () =&gt; Promise
+                </td>
                 <td className="px-4 py-2 text-muted-foreground">
                   Function to manually refetch balance
                 </td>
@@ -216,7 +220,7 @@ export function DocsUseSbtcBalance() {
           The hook automatically uses the correct sBTC contract based on the
           current network:
         </p>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>

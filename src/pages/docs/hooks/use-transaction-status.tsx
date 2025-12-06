@@ -13,24 +13,22 @@ function LiveExample() {
     });
 
   return (
-    <div className="rounded-lg border p-4 space-y-4">
+    <div className="space-y-4 rounded-lg border p-4">
       <h3 className="font-medium">Live Example</h3>
 
       <div className="space-y-2">
-        <label className="text-sm text-muted-foreground">
-          Transaction ID
-        </label>
+        <label className="text-sm text-muted-foreground">Transaction ID</label>
         <input
           type="text"
           value={txId}
           onChange={(e) => setTxId(e.target.value)}
           placeholder="0x..."
-          className="w-full px-3 py-2 text-sm rounded-md border bg-background font-mono"
+          className="w-full rounded-md border bg-background px-3 py-2 font-mono text-sm"
         />
       </div>
 
       {txId && (
-        <div className="rounded-md bg-muted/50 p-3 space-y-3">
+        <div className="space-y-3 rounded-md bg-muted/50 p-3">
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">Status:</span>
             {isLoading && !status ? (
@@ -79,9 +77,12 @@ export function DocsUseTransactionStatus() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">useTransactionStatus</h1>
+        <h1 className="text-3xl font-bold tracking-tight">
+          useTransactionStatus
+        </h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Hook for tracking transaction confirmation status with automatic polling.
+          Hook for tracking transaction confirmation status with automatic
+          polling.
         </p>
       </div>
 
@@ -123,7 +124,7 @@ export function DocsUseTransactionStatus() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Options</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -161,7 +162,7 @@ export function DocsUseTransactionStatus() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Return Value</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -227,7 +228,7 @@ export function DocsUseTransactionStatus() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Transaction Status Values</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -238,27 +239,43 @@ export function DocsUseTransactionStatus() {
             <tbody className="divide-y">
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">pending</td>
-                <td className="px-4 py-2 text-muted-foreground">Transaction is in mempool</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Transaction is in mempool
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">success</td>
-                <td className="px-4 py-2 text-muted-foreground">Transaction confirmed</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Transaction confirmed
+                </td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">abort_by_response</td>
-                <td className="px-4 py-2 text-muted-foreground">Contract returned error</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  abort_by_response
+                </td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Contract returned error
+                </td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">abort_by_post_condition</td>
-                <td className="px-4 py-2 text-muted-foreground">Post-condition failed</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  abort_by_post_condition
+                </td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Post-condition failed
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">dropped_*</td>
-                <td className="px-4 py-2 text-muted-foreground">Transaction dropped from mempool</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Transaction dropped from mempool
+                </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">not_found</td>
-                <td className="px-4 py-2 text-muted-foreground">Transaction not found</td>
+                <td className="px-4 py-2 text-muted-foreground">
+                  Transaction not found
+                </td>
               </tr>
             </tbody>
           </table>

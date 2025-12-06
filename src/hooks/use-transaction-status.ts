@@ -110,7 +110,9 @@ export function useTransactionStatus(
       }
 
       const fetchError =
-        err instanceof Error ? err : new Error('Failed to fetch transaction status');
+        err instanceof Error
+          ? err
+          : new Error('Failed to fetch transaction status');
       setError(fetchError);
       return false;
     }

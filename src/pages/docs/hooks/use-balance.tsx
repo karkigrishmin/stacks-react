@@ -13,7 +13,7 @@ function LiveExample() {
   });
 
   return (
-    <div className="rounded-lg border p-4 space-y-4">
+    <div className="space-y-4 rounded-lg border p-4">
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Live Example</h3>
         <Button
@@ -35,7 +35,7 @@ function LiveExample() {
           value={customAddress}
           onChange={(e) => setCustomAddress(e.target.value)}
           placeholder={address || 'SP... or ST...'}
-          className="w-full px-3 py-2 text-sm rounded-md border bg-background"
+          className="w-full rounded-md border bg-background px-3 py-2 text-sm"
         />
       </div>
 
@@ -107,7 +107,7 @@ export function DocsUseBalance() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Options</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -138,7 +138,7 @@ export function DocsUseBalance() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Return Value</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -178,7 +178,9 @@ export function DocsUseBalance() {
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">refetch</td>
-                <td className="px-4 py-2 font-mono text-xs">() =&gt; Promise</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  () =&gt; Promise
+                </td>
                 <td className="px-4 py-2 text-muted-foreground">
                   Function to manually refetch balance
                 </td>

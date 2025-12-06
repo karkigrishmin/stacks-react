@@ -21,7 +21,7 @@ function LiveExample() {
   });
 
   return (
-    <div className="rounded-lg border p-4 space-y-4">
+    <div className="space-y-4 rounded-lg border p-4">
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Live Example</h3>
         <Button
@@ -42,7 +42,7 @@ function LiveExample() {
             value={contract}
             onChange={(e) => setContract(e.target.value)}
             placeholder="SP...contract-name"
-            className="w-full px-3 py-2 text-sm rounded-md border bg-background font-mono"
+            className="w-full rounded-md border bg-background px-3 py-2 font-mono text-sm"
           />
         </div>
         <div className="space-y-2">
@@ -52,7 +52,7 @@ function LiveExample() {
             value={functionName}
             onChange={(e) => setFunctionName(e.target.value)}
             placeholder="get-name"
-            className="w-full px-3 py-2 text-sm rounded-md border bg-background font-mono"
+            className="w-full rounded-md border bg-background px-3 py-2 font-mono text-sm"
           />
         </div>
       </div>
@@ -68,7 +68,7 @@ function LiveExample() {
         ) : data !== null ? (
           <div className="space-y-1">
             <p className="text-xs text-muted-foreground">Result:</p>
-            <pre className="text-sm font-mono bg-background p-2 rounded overflow-x-auto">
+            <pre className="overflow-x-auto rounded bg-background p-2 font-mono text-sm">
               {JSON.stringify(data, null, 2)}
             </pre>
           </div>
@@ -130,7 +130,7 @@ function TokenBalance({ address }: { address: string }) {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Options</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -175,7 +175,7 @@ function TokenBalance({ address }: { address: string }) {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Return Value</h2>
-        <div className="rounded-lg border overflow-hidden">
+        <div className="overflow-hidden rounded-lg border">
           <table className="w-full text-sm">
             <thead className="bg-muted/50">
               <tr>
@@ -215,7 +215,9 @@ function TokenBalance({ address }: { address: string }) {
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">refetch</td>
-                <td className="px-4 py-2 font-mono text-xs">() =&gt; Promise</td>
+                <td className="px-4 py-2 font-mono text-xs">
+                  () =&gt; Promise
+                </td>
                 <td className="px-4 py-2 text-muted-foreground">
                   Function to manually refetch data
                 </td>

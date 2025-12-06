@@ -10,14 +10,8 @@ import { Button } from '@/components/ui/button';
 import { useWallet } from '@/hooks/use-wallet';
 import { useWalletStore } from '@/stores/wallet-store';
 import { Loader2, ExternalLink } from 'lucide-react';
-import {
-  DEFAULT_PROVIDERS,
-  type WebBTCProvider,
-} from '@stacks/connect';
-import {
-  getProviderFromId,
-  setSelectedProviderId,
-} from '@stacks/connect-ui';
+import { DEFAULT_PROVIDERS, type WebBTCProvider } from '@stacks/connect';
+import { getProviderFromId, setSelectedProviderId } from '@stacks/connect-ui';
 
 interface WalletModalProps {
   open: boolean;
@@ -33,12 +27,12 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
 
   const providers = useMemo<ProviderWithStatus[]>(() => {
     if (typeof window === 'undefined') return [];
-    return DEFAULT_PROVIDERS
-      .filter((p) => p.id !== 'WalletConnectProvider')
-      .map((provider) => ({
-        ...provider,
-        isInstalled: !!getProviderFromId(provider.id),
-      }));
+    return DEFAULT_PROVIDERS.filter(
+      (p) => p.id !== 'WalletConnectProvider'
+    ).map((provider) => ({
+      ...provider,
+      isInstalled: !!getProviderFromId(provider.id),
+    }));
   }, []);
 
   useEffect(() => {
@@ -92,7 +86,7 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
                 }
                 disabled={isConnecting}
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted overflow-hidden">
+                <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-muted">
                   {provider.icon && (
                     <img
                       src={provider.icon}
@@ -106,10 +100,14 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
                 </div>
                 <div className="ml-auto flex items-center gap-2">
                   {provider.isInstalled ? (
-                    isThisConnecting && <Loader2 className="h-4 w-4 animate-spin" />
+                    isThisConnecting && (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    )
                   ) : (
                     <>
-                      <span className="text-xs text-muted-foreground">Install</span>
+                      <span className="text-xs text-muted-foreground">
+                        Install
+                      </span>
                       <ExternalLink className="h-3 w-3 text-muted-foreground" />
                     </>
                   )}
@@ -120,10 +118,12 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
         </div>
 
         {error && (
-          <p className="text-sm text-destructive text-center">{error.message}</p>
+          <p className="text-center text-sm text-destructive">
+            {error.message}
+          </p>
         )}
 
-        <p className="text-xs text-center text-muted-foreground">
+        <p className="text-center text-xs text-muted-foreground">
           By connecting, you agree to the Terms of Service
         </p>
       </DialogContent>
