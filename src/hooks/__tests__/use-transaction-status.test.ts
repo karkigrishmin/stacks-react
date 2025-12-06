@@ -103,8 +103,8 @@ describe('useTransactionStatus', () => {
     vi.useRealTimers();
 
     const { result, rerender } = renderHook(
-      ({ txId }) => useTransactionStatus({ txId }),
-      { initialProps: { txId: MOCK_TX_ID } }
+      ({ txId }: { txId: string | null }) => useTransactionStatus({ txId }),
+      { initialProps: { txId: MOCK_TX_ID as string | null } }
     );
 
     await waitFor(() => {
