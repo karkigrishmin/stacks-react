@@ -107,6 +107,4 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Run tests
-        run: echo "No tests yet - add vitest or bun test"
-        # TODO: Uncomment when tests are added
-        # run: bun test
+        run: bun run test:run
