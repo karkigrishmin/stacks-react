@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/karkigrishmin/stacks-react/compare/v1.0.2...v1.0.3) (2025-12-14)
+
+
+### Bug Fixes
+
+* use React Router Link for internal navigation and add Vercel SPA rewrites ([c1e20cc](https://github.com/karkigrishmin/stacks-react/commit/c1e20ccc1416681eaafb38377bbb0a63e0942223))
+
 ## [1.0.2](https://github.com/karkigrishmin/stacks-react/compare/v1.0.1...v1.0.2) (2025-12-14)
 
 
