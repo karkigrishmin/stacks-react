@@ -1,0 +1,151 @@
+/*
+ * stacks-kit styles
+ * Import this file in your app: import 'stacks-kit/styles.css'
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   CSS Variables - Override these to customize
+   ============================================ */
+
+:root,
+.stacks-kit-light {
+  /* Brand Colors */
+  --sk-bitcoin: #f7931a;
+  --sk-stacks: #5546ff;
+
+  /* Semantic Colors */
+  --sk-success: #22c55e;
+  --sk-warning: #eab308;
+  --sk-error: #ef4444;
+
+  /* Light Theme */
+  --sk-background: #ffffff;
+  --sk-background-secondary: #f5f5f5;
+  --sk-foreground: #0d0d0f;
+  --sk-foreground-secondary: rgba(0, 0, 0, 0.65);
+  --sk-foreground-tertiary: rgba(0, 0, 0, 0.45);
+  --sk-border: rgba(0, 0, 0, 0.1);
+  --sk-card: #ffffff;
+  --sk-card-elevated: #ffffff;
+  --sk-primary: var(--sk-bitcoin);
+  --sk-primary-foreground: #ffffff;
+  --sk-secondary: var(--sk-background-secondary);
+  --sk-secondary-foreground: var(--sk-foreground);
+  --sk-muted: var(--sk-background-secondary);
+  --sk-muted-foreground: var(--sk-foreground-secondary);
+  --sk-accent: var(--sk-background-secondary);
+  --sk-accent-foreground: var(--sk-foreground);
+  --sk-popover: var(--sk-card);
+  --sk-popover-foreground: var(--sk-foreground);
+  --sk-destructive: var(--sk-error);
+  --sk-destructive-foreground: #ffffff;
+  --sk-input: var(--sk-border);
+  --sk-ring: var(--sk-bitcoin);
+
+  /* Border Radius */
+  --sk-radius-sm: 6px;
+  --sk-radius-md: 8px;
+  --sk-radius-lg: 12px;
+  --sk-radius-xl: 16px;
+  --sk-radius-full: 9999px;
+
+  /* Shadows */
+  --sk-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --sk-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --sk-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.dark,
+.stacks-kit-dark {
+  /* Dark Theme */
+  --sk-background: #0d0d0f;
+  --sk-background-secondary: #141418;
+  --sk-foreground: rgba(255, 255, 255, 0.92);
+  --sk-foreground-secondary: rgba(255, 255, 255, 0.65);
+  --sk-foreground-tertiary: rgba(255, 255, 255, 0.45);
+  --sk-border: rgba(255, 255, 255, 0.1);
+  --sk-card: #1a1a1f;
+  --sk-card-elevated: #222228;
+  --sk-primary-foreground: #0d0d0f;
+  --sk-popover: var(--sk-card-elevated);
+
+  /* Dark Shadows */
+  --sk-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --sk-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --sk-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Legacy variable aliases for existing components */
+:root {
+  --background: var(--sk-background);
+  --background-secondary: var(--sk-background-secondary);
+  --foreground: var(--sk-foreground);
+  --foreground-secondary: var(--sk-foreground-secondary);
+  --foreground-tertiary: var(--sk-foreground-tertiary);
+  --border: var(--sk-border);
+  --card: var(--sk-card);
+  --card-elevated: var(--sk-card-elevated);
+  --card-foreground: var(--sk-foreground);
+  --primary: var(--sk-primary);
+  --primary-foreground: var(--sk-primary-foreground);
+  --secondary: var(--sk-secondary);
+  --secondary-foreground: var(--sk-secondary-foreground);
+  --muted: var(--sk-muted);
+  --muted-foreground: var(--sk-muted-foreground);
+  --accent: var(--sk-accent);
+  --accent-foreground: var(--sk-accent-foreground);
+  --popover: var(--sk-popover);
+  --popover-foreground: var(--sk-popover-foreground);
+  --destructive: var(--sk-destructive);
+  --destructive-foreground: var(--sk-destructive-foreground);
+  --input: var(--sk-input);
+  --ring: var(--sk-ring);
+  --radius: var(--sk-radius-md);
+  --success: var(--sk-success);
+  --warning: var(--sk-warning);
+  --error: var(--sk-error);
+  --bitcoin-orange: var(--sk-bitcoin);
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+.stacks-kit * {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes sk-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes sk-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes sk-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

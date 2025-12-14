@@ -27,6 +27,10 @@ pnpm add stacks-kit @stacks/connect @stacks/transactions @stacks/network
 ## Quick Start
 
 ```tsx
+// 1. Import styles (once, in your entry file)
+import 'stacks-kit/styles.css';
+
+// 2. Use components
 import { StacksKitProvider, ConnectButton } from 'stacks-kit';
 
 function App() {
@@ -36,6 +40,23 @@ function App() {
     </StacksKitProvider>
   );
 }
+```
+
+## Customization
+
+Override CSS variables to match your brand:
+
+```css
+:root {
+  --sk-primary: #your-color;
+  --sk-radius-md: 12px;
+}
+```
+
+Or pass Tailwind/custom classes directly:
+
+```tsx
+<ConnectButton className="rounded-full bg-blue-500" />
 ```
 
 ## Usage

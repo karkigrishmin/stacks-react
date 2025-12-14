@@ -36,9 +36,40 @@ export function DocsInstallation() {
           stacks-kit requires the following peer dependencies:
         </p>
         <CodeBlock
-          code={`npm install @stacks/connect @stacks/connect-ui @stacks/transactions`}
+          code={`npm install @stacks/connect @stacks/transactions @stacks/network`}
           language="bash"
         />
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Import Styles</h2>
+        <p className="text-muted-foreground">
+          Import the CSS file in your app entry point (e.g., main.tsx or App.tsx):
+        </p>
+        <CodeBlock code={`import 'stacks-kit/styles.css';`} language="tsx" filename="main.tsx" />
+        <p className="text-sm text-muted-foreground">
+          This includes all component styles with light/dark theme support.
+        </p>
+      </div>
+
+      <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Customization</h2>
+        <p className="text-muted-foreground">Customize the theme by overriding CSS variables:</p>
+        <CodeBlock
+          code={`:root {
+  --sk-primary: #your-brand-color;
+  --sk-radius-md: 12px;
+}
+
+.dark {
+  --sk-background: #1a1a1a;
+}`}
+          language="css"
+          filename="styles.css"
+        />
+        <p className="text-sm text-muted-foreground">
+          Components also accept className props for Tailwind or custom CSS overrides.
+        </p>
       </div>
 
       <div className="space-y-4">

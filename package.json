@@ -16,12 +16,15 @@
         "types": "./dist/index.d.cts",
         "default": "./dist/index.cjs"
       }
-    }
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "files": [
     "dist"
   ],
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "keywords": [
     "stacks",
     "bitcoin",
@@ -45,7 +48,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "build:lib": "tsup",
+    "build:lib": "tsup && bun run build:css",
+    "build:css": "tailwindcss -c tailwind.lib.config.js -i src/styles/library.css -o dist/styles.css --minify",
     "preview": "vite preview",
     "lint": "biome lint src/",
     "lint:fix": "biome lint --write src/",
