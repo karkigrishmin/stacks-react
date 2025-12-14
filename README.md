@@ -10,6 +10,10 @@ React toolkit for Stacks blockchain. Think RainbowKit, but for Bitcoin L2.
 
 ```bash
 npm install stacks-kit @stacks/connect @stacks/transactions @stacks/network
+# or
+yarn add stacks-kit @stacks/connect @stacks/transactions @stacks/network
+# or
+pnpm add stacks-kit @stacks/connect @stacks/transactions @stacks/network
 ```
 
 ## What's Included
