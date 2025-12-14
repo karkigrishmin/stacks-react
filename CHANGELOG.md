@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/karkigrishmin/stacks-react/compare/v1.0.3...v1.1.0) (2025-12-14)
+
+
+### Features
+
+* add CSS export for component styling with customizable CSS variables ([73f46c6](https://github.com/karkigrishmin/stacks-react/commit/73f46c6a56c4c77490a0b6f2eeddff5405b59672))
+
 ## [1.0.3](https://github.com/karkigrishmin/stacks-react/compare/v1.0.2...v1.0.3) (2025-12-14)
 
 
