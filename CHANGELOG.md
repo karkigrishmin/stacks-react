@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/karkigrishmin/stacks-react/compare/v1.1.0...v1.1.1) (2025-12-14)
+
+
+### Bug Fixes
+
+* add missing CSS variables for radius, shadows, and brand colors ([d267bef](https://github.com/karkigrishmin/stacks-react/commit/d267befa4517290dedeb064eab14dc17cdba980b))
+
 # [1.1.0](https://github.com/karkigrishmin/stacks-react/compare/v1.0.3...v1.1.0) (2025-12-14)
 
 
