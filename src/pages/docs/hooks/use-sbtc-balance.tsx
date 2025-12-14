@@ -19,12 +19,14 @@ function LiveExample() {
         <div className="flex items-center gap-2">
           <div className="flex overflow-hidden rounded-md border text-xs">
             <button
+              type="button"
               onClick={() => setNetwork('mainnet')}
               className={`px-2 py-1 ${network === 'mainnet' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
             >
               Mainnet
             </button>
             <button
+              type="button"
               onClick={() => setNetwork('testnet')}
               className={`px-2 py-1 ${network === 'testnet' ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}
             >

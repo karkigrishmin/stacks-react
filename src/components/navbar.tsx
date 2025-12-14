@@ -9,7 +9,7 @@ import { ConnectButton } from './stacks/connect-button';
 import { ThemeToggle } from './theme-toggle';
 import { Button } from './ui/button';
 
-const GITHUB_URL = 'https://github.com/your-org/stacks-kit';
+const GITHUB_URL = 'https://github.com/karkigrishmin/stacks-react';
 
 const navLinks = [
   { href: '#features', label: 'Features', icon: Layers },

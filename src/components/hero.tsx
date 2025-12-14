@@ -4,8 +4,9 @@ import { staggerContainer, staggerItem } from '@/lib/animation/variants';
 import { Button } from './ui/button';
 import { CopyButton } from './ui/copy-button';
 
-const INSTALL_COMMAND = 'npm create stacks-kit@latest';
-const GITHUB_URL = 'https://github.com/your-org/stacks-kit';
+const INSTALL_COMMAND =
+  'npm install stacks-kit @stacks/connect @stacks/transactions @stacks/network';
+const GITHUB_URL = 'https://github.com/karkigrishmin/stacks-react';
 
 export function Hero() {
   return (

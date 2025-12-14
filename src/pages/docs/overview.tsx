@@ -21,8 +21,11 @@ export function DocsOverview() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Quick Start</h2>
-        <p className="text-muted-foreground">Create a new project with stacks-kit in seconds:</p>
-        <CodeBlock code="npm create stacks-kit@latest" language="bash" />
+        <p className="text-muted-foreground">Add stacks-kit to your React project:</p>
+        <CodeBlock
+          code="npm install stacks-kit @stacks/connect @stacks/transactions @stacks/network"
+          language="bash"
+        />
       </div>
 
       <div className="space-y-4">

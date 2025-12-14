@@ -41,7 +41,7 @@
   "bugs": {
     "url": "https://github.com/karkigrishmin/stacks-react/issues"
   },
-  "homepage": "https://github.com/karkigrishmin/stacks-react#readme",
+  "homepage": "https://stacks-kit.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

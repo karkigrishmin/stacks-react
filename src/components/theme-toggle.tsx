@@ -41,6 +41,7 @@ export function ThemeToggle({ className, showLabel = false }: ThemeToggleProps) 
 
   return (
     <button
+      type="button"
       onClick={cycleTheme}
       className={cn(
         'inline-flex items-center justify-center gap-2 rounded-md p-2',
