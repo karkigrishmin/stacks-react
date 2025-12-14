@@ -57,7 +57,7 @@ function LiveExample() {
         </div>
       </div>
 
-      <div className="rounded-md bg-muted/50 p-3">
+      <div className="bg-muted/50 rounded-md p-3">
         {isLoading ? (
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Loader2 className="h-4 w-4 animate-spin" />

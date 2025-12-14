@@ -41,7 +41,7 @@ export class ErrorBoundary extends Component<
       return (
         <div className="flex min-h-screen items-center justify-center bg-background">
           <div className="mx-auto max-w-md space-y-6 p-8 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
+            <div className="bg-destructive/10 mx-auto flex h-16 w-16 items-center justify-center rounded-full">
               <svg
                 className="h-8 w-8 text-destructive"
                 fill="none"

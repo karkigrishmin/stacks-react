@@ -28,7 +28,7 @@ function LiveExample() {
       </div>
 
       {txId && (
-        <div className="space-y-3 rounded-md bg-muted/50 p-3">
+        <div className="bg-muted/50 space-y-3 rounded-md p-3">
           <div className="flex items-center gap-2">
             <span className="text-sm text-muted-foreground">Status:</span>
             {isLoading && !status ? (

@@ -27,7 +27,7 @@ export function DocsLayout() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur">
+      <header className="bg-background/95 sticky top-0 z-50 border-b backdrop-blur">
         <div className="container flex h-14 items-center justify-between">
           <div className="flex items-center gap-4">
             <Button

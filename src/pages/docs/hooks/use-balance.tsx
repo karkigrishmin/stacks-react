@@ -39,7 +39,7 @@ function LiveExample() {
         />
       </div>
 
-      <div className="rounded-md bg-muted/50 p-3">
+      <div className="bg-muted/50 rounded-md p-3">
         {!isConnected && !customAddress ? (
           <p className="text-sm text-muted-foreground">
             Connect wallet or enter an address to see balance
