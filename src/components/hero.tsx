@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import { staggerContainer, staggerItem } from '@/lib/animation/variants';
 import { Button } from './ui/button';
 import { CopyButton } from './ui/copy-button';
-import { staggerContainer, staggerItem } from '@/lib/animation/variants';
 
 const INSTALL_COMMAND = 'npm create stacks-kit@latest';
 const GITHUB_URL = 'https://github.com/your-org/stacks-kit';
@@ -11,10 +11,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Background gradient */}
-      <div
-        className="bg-hero-gradient pointer-events-none absolute inset-0"
-        aria-hidden="true"
-      />
+      <div className="bg-hero-gradient pointer-events-none absolute inset-0" aria-hidden="true" />
 
       <div className="container relative py-20 md:py-28 lg:py-36">
         <motion.div
@@ -36,8 +33,7 @@ export function Hero() {
             variants={staggerItem}
             className="text-display-lg font-bold tracking-tight md:text-display-xl"
           >
-            The React toolkit for{' '}
-            <span className="gradient-text-brand">Stacks & Bitcoin L2</span>
+            The React toolkit for <span className="gradient-text-brand">Stacks & Bitcoin L2</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -45,8 +41,8 @@ export function Hero() {
             variants={staggerItem}
             className="mx-auto max-w-2xl text-body-lg text-foreground-secondary"
           >
-            Connect wallets, send STX, and interact with smart contracts using
-            beautiful UI components and simple React hooks.
+            Connect wallets, send STX, and interact with smart contracts using beautiful UI
+            components and simple React hooks.
           </motion.p>
 
           {/* Install command */}

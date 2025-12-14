@@ -1,6 +1,6 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
+import { MOCK_BTC_ADDRESS, MOCK_STX_ADDRESS } from '@/test/mocks/handlers';
 import { useWalletStore } from '../wallet-store';
-import { MOCK_STX_ADDRESS, MOCK_BTC_ADDRESS } from '@/test/mocks/handlers';
 
 describe('wallet-store', () => {
   beforeEach(() => {
@@ -56,9 +56,7 @@ describe('wallet-store', () => {
     });
 
     it('should set connected state with both addresses', () => {
-      useWalletStore
-        .getState()
-        .setConnected(MOCK_STX_ADDRESS, MOCK_BTC_ADDRESS);
+      useWalletStore.getState().setConnected(MOCK_STX_ADDRESS, MOCK_BTC_ADDRESS);
 
       const state = useWalletStore.getState();
       expect(state.isConnected).toBe(true);

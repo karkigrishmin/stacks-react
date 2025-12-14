@@ -1,4 +1,4 @@
-import type { Variants, Transition } from 'framer-motion';
+import type { Transition, Variants } from 'framer-motion';
 
 // Transition presets from DESIGN_SYSTEM.md
 export const transitions = {

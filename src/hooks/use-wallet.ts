@@ -1,11 +1,6 @@
+import { disconnect, getLocalStorage, request, type StacksProvider } from '@stacks/connect';
 import { useCallback, useEffect } from 'react';
-import {
-  request,
-  disconnect,
-  getLocalStorage,
-  type StacksProvider,
-} from '@stacks/connect';
-import { useWalletStore, type Network } from '@/stores/wallet-store';
+import { type Network, useWalletStore } from '@/stores/wallet-store';
 
 export function useWallet() {
   const store = useWalletStore();
@@ -25,10 +20,7 @@ export function useWallet() {
       store.setConnecting(true);
       store.setError(null);
       try {
-        await request(
-          { provider, forceWalletSelect: !provider },
-          'getAddresses'
-        );
+        await request({ provider, forceWalletSelect: !provider }, 'getAddresses');
         const storage = getLocalStorage();
         const stxAddress = storage?.addresses?.stx?.[0]?.address;
         const btcAddress = storage?.addresses?.btc?.[0]?.address;
@@ -42,12 +34,8 @@ export function useWallet() {
       } catch (error) {
         let message = 'Connection failed';
         if (error instanceof Error) {
-          if (
-            error.message.includes("'in' operator") ||
-            error.message.includes('undefined')
-          ) {
-            message =
-              'Wallet not found. Please install a Stacks wallet extension.';
+          if (error.message.includes("'in' operator") || error.message.includes('undefined')) {
+            message = 'Wallet not found. Please install a Stacks wallet extension.';
           } else {
             message = error.message;
           }
@@ -58,7 +46,7 @@ export function useWallet() {
         store.setConnecting(false);
       }
     },
-    [store]
+    [store],
   );
 
   const handleDisconnect = useCallback(() => {
@@ -70,7 +58,7 @@ export function useWallet() {
     (network: Network) => {
       store.setNetwork(network);
     },
-    [store]
+    [store],
   );
 
   return {

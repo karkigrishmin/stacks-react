@@ -1,17 +1,14 @@
-import { Moon, Sun, Monitor } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from './theme-provider';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Monitor, Moon, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useTheme } from './theme-provider';
 
 interface ThemeToggleProps {
   className?: string;
   showLabel?: boolean;
 }
 
-export function ThemeToggle({
-  className,
-  showLabel = false,
-}: ThemeToggleProps) {
+export function ThemeToggle({ className, showLabel = false }: ThemeToggleProps) {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   const cycleTheme = () => {
@@ -34,11 +31,7 @@ export function ThemeToggle({
     if (theme === 'system') {
       return <Monitor className="h-4 w-4" />;
     }
-    return resolvedTheme === 'dark' ? (
-      <Moon className="h-4 w-4" />
-    ) : (
-      <Sun className="h-4 w-4" />
-    );
+    return resolvedTheme === 'dark' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />;
   };
 
   const getLabel = () => {
@@ -55,7 +48,7 @@ export function ThemeToggle({
         'hover:bg-background-secondary',
         'transition-colors duration-fast',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-        className
+        className,
       )}
       aria-label={`Current theme: ${getLabel()}. Click to switch.`}
     >

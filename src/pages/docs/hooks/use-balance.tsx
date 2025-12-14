@@ -1,9 +1,9 @@
+import { Loader2, RefreshCw } from 'lucide-react';
 import { useState } from 'react';
 import { CodeBlock } from '@/components/docs/code-block';
+import { Button } from '@/components/ui/button';
 import { useBalance } from '@/hooks/use-balance';
 import { useWallet } from '@/hooks/use-wallet';
-import { Button } from '@/components/ui/button';
-import { Loader2, RefreshCw } from 'lucide-react';
 
 function LiveExample() {
   const { isConnected, address } = useWallet();
@@ -16,12 +16,7 @@ function LiveExample() {
     <div className="space-y-4 rounded-lg border p-4">
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Live Example</h3>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => refetch()}
-          disabled={isLoading}
-        >
+        <Button variant="ghost" size="sm" onClick={() => refetch()} disabled={isLoading}>
           <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
         </Button>
       </div>
@@ -54,9 +49,7 @@ function LiveExample() {
         ) : (
           <div className="space-y-1">
             <p className="text-2xl font-bold">{balance} STX</p>
-            <p className="text-xs text-muted-foreground">
-              {customAddress || address}
-            </p>
+            <p className="text-xs text-muted-foreground">{customAddress || address}</p>
           </div>
         )}
       </div>
@@ -76,10 +69,7 @@ export function DocsUseBalance() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { useBalance } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { useBalance } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -165,22 +155,16 @@ export function DocsUseBalance() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isError</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Whether an error occurred
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Whether an error occurred</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">error</td>
                 <td className="px-4 py-2 font-mono text-xs">Error | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Error object if fetch failed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Error object if fetch failed</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">refetch</td>
-                <td className="px-4 py-2 font-mono text-xs">
-                  () =&gt; Promise
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">() =&gt; Promise</td>
                 <td className="px-4 py-2 text-muted-foreground">
                   Function to manually refetch balance
                 </td>

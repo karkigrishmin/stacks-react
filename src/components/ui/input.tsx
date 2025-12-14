@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 
 const inputVariants = cva(
@@ -22,12 +22,11 @@ const inputVariants = cva(
       variant: 'default',
       inputSize: 'default',
     },
-  }
+  },
 );
 
 export interface InputProps
-  extends
-    Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>,
     VariantProps<typeof inputVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
@@ -35,19 +34,7 @@ export interface InputProps
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      className,
-      type,
-      variant,
-      inputSize,
-      leftIcon,
-      rightIcon,
-      error,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, type, variant, inputSize, leftIcon, rightIcon, error, ...props }, ref) => {
     const hasLeftIcon = !!leftIcon;
     const hasRightIcon = !!rightIcon;
     const effectiveVariant = error ? 'error' : variant;
@@ -64,7 +51,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           className={cn(
             inputVariants({ variant: effectiveVariant, inputSize, className }),
             hasLeftIcon && 'pl-10',
-            hasRightIcon && 'pr-10'
+            hasRightIcon && 'pr-10',
           )}
           ref={ref}
           {...props}
@@ -74,12 +61,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {rightIcon}
           </div>
         )}
-        {error && (
-          <p className="mt-1.5 text-caption text-[var(--error)]">{error}</p>
-        )}
+        {error && <p className="mt-1.5 text-caption text-[var(--error)]">{error}</p>}
       </div>
     );
-  }
+  },
 );
 Input.displayName = 'Input';
 

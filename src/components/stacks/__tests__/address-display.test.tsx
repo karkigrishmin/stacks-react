@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent, waitFor } from '@/test/test-utils';
-import { AddressDisplay } from '../address-display';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { MOCK_STX_ADDRESS } from '@/test/mocks/handlers';
+import { fireEvent, render, screen, waitFor } from '@/test/test-utils';
+import { AddressDisplay } from '../address-display';
 
 describe('AddressDisplay', () => {
   beforeEach(() => {
@@ -96,9 +96,7 @@ describe('AddressDisplay', () => {
   });
 
   it('should apply custom className', () => {
-    render(
-      <AddressDisplay address={MOCK_STX_ADDRESS} className="custom-class" />
-    );
+    render(<AddressDisplay address={MOCK_STX_ADDRESS} className="custom-class" />);
 
     const button = screen.getByRole('button');
     expect(button).toHaveClass('custom-class');

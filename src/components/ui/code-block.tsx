@@ -1,5 +1,5 @@
+import { Highlight, type Language, themes } from 'prism-react-renderer';
 import * as React from 'react';
-import { Highlight, themes, type Language } from 'prism-react-renderer';
 import { cn } from '@/lib/utils';
 import { CopyButton } from './copy-button';
 
@@ -11,10 +11,7 @@ export interface CodeBlockProps {
 }
 
 const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
-  (
-    { code, language = 'typescript', showLineNumbers = false, className },
-    ref
-  ) => {
+  ({ code, language = 'typescript', showLineNumbers = false, className }, ref) => {
     // Custom theme using CSS variables from design system
     const customTheme = {
       ...themes.nightOwl,
@@ -63,31 +60,20 @@ const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
         ref={ref}
         className={cn(
           'relative overflow-hidden rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--code-bg)]',
-          className
+          className,
         )}
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-[var(--border)] px-4 py-2">
-          <span className="text-caption text-[var(--foreground-tertiary)]">
-            {language}
-          </span>
+          <span className="text-caption text-[var(--foreground-tertiary)]">{language}</span>
           <CopyButton value={code} showLabel />
         </div>
 
         {/* Code */}
         <Highlight theme={customTheme} code={code.trim()} language={language}>
-          {({
-            className: preClassName,
-            style,
-            tokens,
-            getLineProps,
-            getTokenProps,
-          }) => (
+          {({ className: preClassName, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className={cn(
-                preClassName,
-                'overflow-x-auto p-4 font-mono text-body-sm'
-              )}
+              className={cn(preClassName, 'overflow-x-auto p-4 font-mono text-body-sm')}
               style={style}
             >
               {tokens.map((line, i) => (
@@ -107,7 +93,7 @@ const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
         </Highlight>
       </div>
     );
-  }
+  },
 );
 CodeBlock.displayName = 'CodeBlock';
 

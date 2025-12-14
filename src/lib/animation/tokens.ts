@@ -38,13 +38,11 @@ export const cssVars = {
 export function createTransition(
   properties: string | string[],
   durationKey: keyof typeof duration = 'normal',
-  easingKey: keyof typeof easing = 'outQuart'
+  easingKey: keyof typeof easing = 'outQuart',
 ): string {
   const props = Array.isArray(properties) ? properties : [properties];
   const durationMs = duration[durationKey];
   const easingValue = `cubic-bezier(${easing[easingKey].join(', ')})`;
 
-  return props
-    .map((prop) => `${prop} ${durationMs}ms ${easingValue}`)
-    .join(', ');
+  return props.map((prop) => `${prop} ${durationMs}ms ${easingValue}`).join(', ');
 }

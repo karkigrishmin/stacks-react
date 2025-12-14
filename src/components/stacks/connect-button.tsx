@@ -1,12 +1,6 @@
+import { ChevronDown, Copy, ExternalLink, Loader2, LogOut, Wallet } from 'lucide-react';
 import { useState } from 'react';
-import {
-  ChevronDown,
-  LogOut,
-  Copy,
-  ExternalLink,
-  Wallet,
-  Loader2,
-} from 'lucide-react';
+import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -16,13 +10,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { WalletModal } from './wallet-modal';
-import { AddressDisplay } from './address-display';
-import { NetworkBadge } from './network-badge';
-import { BalanceDisplay } from './balance-display';
 import { useWallet } from '@/hooks/use-wallet';
 import { cn } from '@/lib/utils';
-import { toast } from 'sonner';
+import { AddressDisplay } from './address-display';
+import { BalanceDisplay } from './balance-display';
+import { NetworkBadge } from './network-badge';
+import { WalletModal } from './wallet-modal';
 
 interface ConnectButtonProps {
   showBalance?: boolean;
@@ -38,8 +31,7 @@ export function ConnectButton({
   className,
 }: ConnectButtonProps) {
   const [modalOpen, setModalOpen] = useState(false);
-  const { isConnected, isConnecting, address, network, disconnect } =
-    useWallet();
+  const { isConnected, isConnecting, address, network, disconnect } = useWallet();
 
   const handleCopyAddress = async () => {
     if (!address) return;
@@ -104,9 +96,7 @@ export function ConnectButton({
       >
         <DropdownMenuLabel>
           <div className="flex flex-col gap-1">
-            <span className="text-xs text-[var(--foreground-tertiary)]">
-              Connected
-            </span>
+            <span className="text-xs text-[var(--foreground-tertiary)]">Connected</span>
             {address && (
               <AddressDisplay
                 address={address}

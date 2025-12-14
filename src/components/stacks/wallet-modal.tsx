@@ -1,5 +1,9 @@
-import { useEffect, useState, useMemo } from 'react';
+import { DEFAULT_PROVIDERS, type WebBTCProvider } from '@stacks/connect';
+import { getProviderFromId, setSelectedProviderId } from '@stacks/connect-ui';
 import { motion } from 'framer-motion';
+import { ExternalLink, Loader2, Wallet } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { Badge } from '@/components/ui/badge';
 import {
   Dialog,
   DialogContent,
@@ -7,14 +11,10 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Badge } from '@/components/ui/badge';
 import { useWallet } from '@/hooks/use-wallet';
-import { useWalletStore } from '@/stores/wallet-store';
-import { Loader2, ExternalLink, Wallet } from 'lucide-react';
-import { DEFAULT_PROVIDERS, type WebBTCProvider } from '@stacks/connect';
-import { getProviderFromId, setSelectedProviderId } from '@stacks/connect-ui';
 import { staggerContainer, staggerItem } from '@/lib/animation/variants';
 import { cn } from '@/lib/utils';
+import { useWalletStore } from '@/stores/wallet-store';
 
 interface WalletModalProps {
   open: boolean;
@@ -30,9 +30,7 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
 
   const providers = useMemo<ProviderWithStatus[]>(() => {
     if (typeof window === 'undefined') return [];
-    return DEFAULT_PROVIDERS.filter(
-      (p) => p.id !== 'WalletConnectProvider'
-    ).map((provider) => ({
+    return DEFAULT_PROVIDERS.filter((p) => p.id !== 'WalletConnectProvider').map((provider) => ({
       ...provider,
       isInstalled: !!getProviderFromId(provider.id),
     }));
@@ -73,9 +71,7 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
             </div>
             <div>
               <DialogTitle>Connect Wallet</DialogTitle>
-              <DialogDescription>
-                Choose a wallet to connect to this app
-              </DialogDescription>
+              <DialogDescription>Choose a wallet to connect to this app</DialogDescription>
             </div>
           </div>
         </DialogHeader>
@@ -94,36 +90,26 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
                 key={provider.id}
                 variants={staggerItem}
                 onClick={() =>
-                  provider.isInstalled
-                    ? handleConnect(provider)
-                    : handleInstall(provider)
+                  provider.isInstalled ? handleConnect(provider) : handleInstall(provider)
                 }
                 disabled={isConnecting}
                 aria-label={
-                  provider.isInstalled
-                    ? `Connect to ${provider.name}`
-                    : `Install ${provider.name}`
+                  provider.isInstalled ? `Connect to ${provider.name}` : `Install ${provider.name}`
                 }
                 className={cn(
                   'flex w-full items-center gap-3 rounded-[var(--radius-lg)] border border-[var(--border)] bg-[var(--card)] p-4 text-left transition-all',
                   'hover:border-[var(--border-strong)] hover:bg-[var(--background-secondary)]',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-                  'disabled:pointer-events-none disabled:opacity-50'
+                  'disabled:pointer-events-none disabled:opacity-50',
                 )}
               >
                 <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-[var(--radius-md)] bg-[var(--background-secondary)]">
                   {provider.icon && (
-                    <img
-                      src={provider.icon}
-                      alt={provider.name}
-                      className="h-8 w-8"
-                    />
+                    <img src={provider.icon} alt={provider.name} className="h-8 w-8" />
                   )}
                 </div>
                 <div className="flex flex-1 flex-col items-start">
-                  <span className="font-semibold text-[var(--foreground)]">
-                    {provider.name}
-                  </span>
+                  <span className="font-semibold text-[var(--foreground)]">{provider.name}</span>
                   {provider.isInstalled && (
                     <Badge variant="success" size="sm" className="mt-1">
                       Installed
@@ -147,11 +133,7 @@ export function WalletModal({ open, onOpenChange }: WalletModalProps) {
           })}
         </motion.div>
 
-        {error && (
-          <p className="text-center text-sm text-[var(--error)]">
-            {error.message}
-          </p>
-        )}
+        {error && <p className="text-center text-sm text-[var(--error)]">{error.message}</p>}
 
         <p className="text-center text-xs text-[var(--foreground-tertiary)]">
           By connecting, you agree to the Terms of Service

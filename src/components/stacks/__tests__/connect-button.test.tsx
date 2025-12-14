@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@/test/test-utils';
-import { ConnectButton } from '../connect-button';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useWalletStore } from '@/stores/wallet-store';
 import { MOCK_STX_ADDRESS } from '@/test/mocks/handlers';
+import { fireEvent, render, screen } from '@/test/test-utils';
+import { ConnectButton } from '../connect-button';
 
 // Mock @stacks/connect to avoid ESM issues
 vi.mock('@stacks/connect', () => ({

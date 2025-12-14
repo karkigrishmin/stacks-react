@@ -29,22 +29,12 @@ export function Logo({ showText = true, size = 'md', className }: LogoProps) {
         <rect x="5" y="6" width="16" height="12" rx="3" fill="#F7931A" />
       </svg>
 
-      {showText && (
-        <span className={cn('font-semibold tracking-tight', text)}>
-          stacks-kit
-        </span>
-      )}
+      {showText && <span className={cn('font-semibold tracking-tight', text)}>stacks-kit</span>}
     </div>
   );
 }
 
-export function LogoIcon({
-  size = 32,
-  className,
-}: {
-  size?: number;
-  className?: string;
-}) {
+export function LogoIcon({ size = 32, className }: { size?: number; className?: string }) {
   return (
     <svg
       width={size}

@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { renderHook, act } from '@testing-library/react';
-import { useContractCall } from '../use-contract-call';
+import { act, renderHook } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { MOCK_TX_ID } from '@/test/mocks/handlers';
+import { useContractCall } from '../use-contract-call';
 
 // Mock @stacks/connect
 const mockRequest = vi.fn();

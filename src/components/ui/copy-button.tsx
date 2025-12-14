@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Check, Copy } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Check, Copy } from 'lucide-react';
+import * as React from 'react';
+import { buttonTap } from '@/lib/animation/variants';
 import { cn } from '@/lib/utils';
 import { Button } from './button';
-import { buttonTap } from '@/lib/animation/variants';
 
 export interface CopyButtonProps {
   /** The text to copy to clipboard */
@@ -76,7 +76,7 @@ export function CopyButton({
         'flex items-center gap-1.5 rounded-[var(--radius-sm)] px-2 py-1 text-caption text-[var(--foreground-tertiary)] transition-colors',
         'hover:bg-[var(--background-secondary)] hover:text-foreground',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2',
-        className
+        className,
       )}
     >
       {copied ? (

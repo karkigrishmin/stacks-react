@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { Copy, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { Check, Copy } from 'lucide-react';
+import { useState } from 'react';
 import { toast } from 'sonner';
 import { buttonTap } from '@/lib/animation/variants';
+import { cn } from '@/lib/utils';
 
 interface AddressDisplayProps {
   address: string;
@@ -27,9 +27,7 @@ export function AddressDisplay({
 }: AddressDisplayProps) {
   const [copied, setCopied] = useState(false);
 
-  const displayAddress = truncate
-    ? truncateAddress(address, truncateLength)
-    : address;
+  const displayAddress = truncate ? truncateAddress(address, truncateLength) : address;
 
   const handleCopy = async () => {
     if (!copyable) return;
@@ -50,7 +48,7 @@ export function AddressDisplay({
       <span
         className={cn(
           'inline-flex items-center gap-1.5 font-mono text-sm text-[var(--foreground)]',
-          className
+          className,
         )}
       >
         {displayAddress}
@@ -66,7 +64,7 @@ export function AddressDisplay({
       className={cn(
         'inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] px-2 py-1 font-mono text-sm text-[var(--foreground)] transition-colors',
         'cursor-pointer hover:bg-[var(--background-secondary)] active:bg-[var(--background-secondary)]',
-        className
+        className,
       )}
     >
       <span>{displayAddress}</span>

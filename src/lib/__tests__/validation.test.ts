@@ -1,39 +1,35 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import {
+  balanceResponseSchema,
+  parseBalanceResponse,
+  parseReadContractResponse,
+  parseTxResponse,
+  parseTxStatusResponse,
+  readContractResponseSchema,
   stxAddressSchema,
   stxAmountSchema,
   transferFormSchema,
-  validateTransferForm,
   txResponseSchema,
-  parseTxResponse,
-  readContractResponseSchema,
-  parseReadContractResponse,
   txStatusResponseSchema,
-  parseTxStatusResponse,
-  balanceResponseSchema,
-  parseBalanceResponse,
+  validateTransferForm,
 } from '../validation';
 
 describe('validation schemas', () => {
   describe('stxAddressSchema', () => {
     it('should accept valid mainnet address (SP)', () => {
       // SP addresses need at least 38 chars after prefix
-      const result = stxAddressSchema.safeParse(
-        'SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKNRV9EJ7'
-      );
+      const result = stxAddressSchema.safeParse('SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKNRV9EJ7');
       expect(result.success).toBe(true);
     });
 
     it('should accept valid testnet address (ST)', () => {
-      const result = stxAddressSchema.safeParse(
-        'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM'
-      );
+      const result = stxAddressSchema.safeParse('ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM');
       expect(result.success).toBe(true);
     });
 
     it('should accept contract addresses', () => {
       const result = stxAddressSchema.safeParse(
-        'SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKNRV9EJ7.my-contract'
+        'SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKNRV9EJ7.my-contract',
       );
       expect(result.success).toBe(true);
     });
@@ -44,9 +40,7 @@ describe('validation schemas', () => {
     });
 
     it('should reject invalid prefix', () => {
-      const result = stxAddressSchema.safeParse(
-        'XX000000000000000000002Q6VF78'
-      );
+      const result = stxAddressSchema.safeParse('XX000000000000000000002Q6VF78');
       expect(result.success).toBe(false);
     });
 
@@ -230,7 +224,7 @@ describe('validation schemas', () => {
 
     it('should throw on invalid response', () => {
       expect(() => parseReadContractResponse({ result: '0x01' })).toThrow(
-        'Invalid read contract response'
+        'Invalid read contract response',
       );
     });
   });
@@ -275,7 +269,7 @@ describe('validation schemas', () => {
 
     it('should throw on invalid response', () => {
       expect(() => parseTxStatusResponse({ tx_status: 'success' })).toThrow(
-        'Invalid transaction status response'
+        'Invalid transaction status response',
       );
     });
   });
@@ -312,9 +306,7 @@ describe('validation schemas', () => {
     });
 
     it('should throw on invalid response', () => {
-      expect(() => parseBalanceResponse({})).toThrow(
-        'Invalid balance response'
-      );
+      expect(() => parseBalanceResponse({})).toThrow('Invalid balance response');
     });
   });
 });

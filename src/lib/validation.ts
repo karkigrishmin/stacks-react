@@ -11,7 +11,7 @@ export const stxAddressSchema = z
   .min(1, 'Address is required')
   .refine(
     (addr) => /^(SP|ST)[A-Z0-9]{38,}/.test(addr),
-    'Invalid STX address. Must start with SP (mainnet) or ST (testnet)'
+    'Invalid STX address. Must start with SP (mainnet) or ST (testnet)',
   );
 
 /**
@@ -45,10 +45,7 @@ export type TransferFormData = z.infer<typeof transferFormSchema>;
 /**
  * Validate transfer form data and return errors
  */
-export function validateTransferForm(data: {
-  recipient: string;
-  amount: string;
-}): {
+export function validateTransferForm(data: { recipient: string; amount: string }): {
   valid: boolean;
   errors: { recipient?: string; amount?: string };
 } {
@@ -103,9 +100,7 @@ export const readContractResponseSchema = z.object({
 
 export type ReadContractResponse = z.infer<typeof readContractResponseSchema>;
 
-export function parseReadContractResponse(
-  response: unknown
-): ReadContractResponse {
+export function parseReadContractResponse(response: unknown): ReadContractResponse {
   const result = readContractResponseSchema.safeParse(response);
   if (!result.success) {
     throw new Error('Invalid read contract response');

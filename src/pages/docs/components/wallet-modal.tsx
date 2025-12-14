@@ -12,10 +12,7 @@ export function DocsWalletModal() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { WalletModal } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { WalletModal } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -60,15 +57,11 @@ function App() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">open</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Controls modal visibility
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Controls modal visibility</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">onOpenChange</td>
-                <td className="px-4 py-2 font-mono text-xs">
-                  (open: boolean) =&gt; void
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">(open: boolean) =&gt; void</td>
                 <td className="px-4 py-2 text-muted-foreground">
                   Callback when open state changes
                 </td>
@@ -81,21 +74,19 @@ function App() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Supported Wallets</h2>
         <p className="text-muted-foreground">
-          The modal automatically detects and displays available wallet
-          providers:
+          The modal automatically detects and displays available wallet providers:
         </p>
         <ul className="list-inside list-disc space-y-2 text-muted-foreground">
           <li>
-            <strong>Leather</strong> - Full-featured Stacks wallet (formerly
-            Hiro Wallet)
+            <strong>Leather</strong> - Full-featured Stacks wallet (formerly Hiro Wallet)
           </li>
           <li>
             <strong>Xverse</strong> - Bitcoin and Stacks multi-chain wallet
           </li>
         </ul>
         <p className="mt-4 text-muted-foreground">
-          If a wallet is not installed, the modal shows an "Install" link that
-          opens the wallet's extension page.
+          If a wallet is not installed, the modal shows an "Install" link that opens the wallet's
+          extension page.
         </p>
       </div>
 
@@ -105,17 +96,15 @@ function App() {
           <li>Shows loading spinner while connecting</li>
           <li>Displays error messages if connection fails</li>
           <li>Automatically closes on successful connection</li>
-          <li>
-            Accessible: keyboard navigation, focus trap, screen reader support
-          </li>
+          <li>Accessible: keyboard navigation, focus trap, screen reader support</li>
         </ul>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">With ConnectButton</h2>
         <p className="text-muted-foreground">
-          The ConnectButton component manages the modal internally. You only
-          need to use WalletModal directly if you want custom trigger behavior.
+          The ConnectButton component manages the modal internally. You only need to use WalletModal
+          directly if you want custom trigger behavior.
         </p>
         <CodeBlock
           code={`// This handles modal state automatically

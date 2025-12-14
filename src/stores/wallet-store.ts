@@ -50,6 +50,6 @@ export const useWalletStore = create<WalletStore>()(
       setNetwork: (network) => set({ network }),
       setError: (error) => set({ error, isConnecting: false }),
     }),
-    { name: 'stacks-wallet' }
-  )
+    { name: 'stacks-wallet' },
+  ),
 );

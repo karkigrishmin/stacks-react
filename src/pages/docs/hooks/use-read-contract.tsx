@@ -1,16 +1,16 @@
+import { Loader2, RefreshCw } from 'lucide-react';
 import { useState } from 'react';
 import { CodeBlock } from '@/components/docs/code-block';
+import { Button } from '@/components/ui/button';
 import { useReadContract } from '@/hooks/use-read-contract';
 import { useWallet } from '@/hooks/use-wallet';
-import { Button } from '@/components/ui/button';
-import { Loader2, RefreshCw } from 'lucide-react';
 
 function LiveExample() {
   const { network } = useWallet();
   const [contract, setContract] = useState(
     network === 'mainnet'
       ? 'SP2C2YFP12AJZB4MABJBAJ55XECVS7E4PMMZ89YZR.arkadiko-token'
-      : 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.sip010-token'
+      : 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.sip010-token',
   );
   const [functionName, setFunctionName] = useState('get-name');
 
@@ -24,12 +24,7 @@ function LiveExample() {
     <div className="space-y-4 rounded-lg border p-4">
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Live Example</h3>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => refetch()}
-          disabled={isLoading}
-        >
+        <Button variant="ghost" size="sm" onClick={() => refetch()} disabled={isLoading}>
           <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
         </Button>
       </div>
@@ -73,9 +68,7 @@ function LiveExample() {
             </pre>
           </div>
         ) : (
-          <p className="text-sm text-muted-foreground">
-            Enter contract and function to call
-          </p>
+          <p className="text-sm text-muted-foreground">Enter contract and function to call</p>
         )}
       </div>
 
@@ -98,10 +91,7 @@ export function DocsUseReadContract() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { useReadContract } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { useReadContract } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -150,16 +140,12 @@ function TokenBalance({ address }: { address: string }) {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">functionName</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Read-only function to call
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Read-only function to call</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">args</td>
                 <td className="px-4 py-2 font-mono text-xs">ClarityValue[]</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Function arguments (optional)
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Function arguments (optional)</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">enabled</td>
@@ -195,29 +181,21 @@ function TokenBalance({ address }: { address: string }) {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isLoading</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Whether the call is in progress
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Whether the call is in progress</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isError</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Whether an error occurred
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Whether an error occurred</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">error</td>
                 <td className="px-4 py-2 font-mono text-xs">Error | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Error object if call failed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Error object if call failed</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">refetch</td>
-                <td className="px-4 py-2 font-mono text-xs">
-                  () =&gt; Promise
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">() =&gt; Promise</td>
                 <td className="px-4 py-2 text-muted-foreground">
                   Function to manually refetch data
                 </td>

@@ -6,17 +6,13 @@ export function DocsConnectButton() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">ConnectButton</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          A pre-styled button component for wallet connection with dropdown
-          menu.
+          A pre-styled button component for wallet connection with dropdown menu.
         </p>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { ConnectButton } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { ConnectButton } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -63,17 +59,13 @@ export function DocsConnectButton() {
                 <td className="px-4 py-2 font-mono text-xs">label</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">"Connect"</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Button text when disconnected
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Button text when disconnected</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">showBalance</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
                 <td className="px-4 py-2 font-mono text-xs">false</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Show STX balance when connected
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Show STX balance when connected</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">showNetwork</td>
@@ -87,9 +79,7 @@ export function DocsConnectButton() {
                 <td className="px-4 py-2 font-mono text-xs">className</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">-</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Additional CSS classes
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Additional CSS classes</td>
               </tr>
             </tbody>
           </table>
@@ -100,19 +90,16 @@ export function DocsConnectButton() {
         <h2 className="text-2xl font-semibold">Behavior</h2>
         <ul className="list-inside list-disc space-y-2 text-muted-foreground">
           <li>
-            <strong>Disconnected:</strong> Shows connect button that opens
-            WalletModal
+            <strong>Disconnected:</strong> Shows connect button that opens WalletModal
           </li>
           <li>
             <strong>Connecting:</strong> Shows loading spinner
           </li>
           <li>
-            <strong>Connected:</strong> Shows truncated address with dropdown
-            menu
+            <strong>Connected:</strong> Shows truncated address with dropdown menu
           </li>
           <li>
-            <strong>Dropdown menu:</strong> Copy address, switch network,
-            disconnect
+            <strong>Dropdown menu:</strong> Copy address, switch network, disconnect
           </li>
         </ul>
       </div>
@@ -120,8 +107,7 @@ export function DocsConnectButton() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Customization</h2>
         <p className="text-muted-foreground">
-          For full control over styling and behavior, use the useWallet hook
-          directly:
+          For full control over styling and behavior, use the useWallet hook directly:
         </p>
         <CodeBlock
           code={`import { useWallet } from 'stacks-kit';

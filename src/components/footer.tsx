@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { Github, Twitter } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Logo } from './logo';
 
 const GITHUB_URL = 'https://github.com/your-org/stacks-kit';
@@ -51,8 +51,8 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Logo showText />
             <p className="mt-4 max-w-xs text-body-sm text-foreground-secondary">
-              The React toolkit for building applications on Stacks and Bitcoin
-              L2. Simple hooks, beautiful UI.
+              The React toolkit for building applications on Stacks and Bitcoin L2. Simple hooks,
+              beautiful UI.
             </p>
             {/* Social links */}
             <div className="mt-6 flex items-center gap-4">

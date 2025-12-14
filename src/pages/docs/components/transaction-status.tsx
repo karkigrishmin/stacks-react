@@ -6,17 +6,14 @@ export function DocsTransactionStatus() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">TransactionStatus</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          A component for displaying the status of a Stacks transaction with
-          real-time updates and explorer link.
+          A component for displaying the status of a Stacks transaction with real-time updates and
+          explorer link.
         </p>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { TransactionStatus } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { TransactionStatus } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -70,22 +67,16 @@ function SendSTX() {
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">
-                  showExplorerLink
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">showExplorerLink</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
                 <td className="px-4 py-2 font-mono text-xs">true</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Show link to Stacks Explorer
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Show link to Stacks Explorer</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">className</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">-</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Additional CSS classes
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Additional CSS classes</td>
               </tr>
             </tbody>
           </table>
@@ -106,59 +97,35 @@ function SendSTX() {
             <tbody className="divide-y">
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">pending</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Default (spinning icon)
-                </td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction is in the mempool
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Default (spinning icon)</td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction is in the mempool</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">success</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Success (green)
-                </td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction confirmed on-chain
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Success (green)</td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction confirmed on-chain</td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">
-                  abort_by_response
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">abort_by_response</td>
                 <td className="px-4 py-2 text-muted-foreground">Error (red)</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction failed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction failed</td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">
-                  abort_by_post_condition
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">abort_by_post_condition</td>
                 <td className="px-4 py-2 text-muted-foreground">Error (red)</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Post-condition check failed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Post-condition check failed</td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">
-                  dropped_replace_by_fee
-                </td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Warning (yellow)
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">dropped_replace_by_fee</td>
+                <td className="px-4 py-2 text-muted-foreground">Warning (yellow)</td>
                 <td className="px-4 py-2 text-muted-foreground">
                   Replaced by higher fee transaction
                 </td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">not_found</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Default (question icon)
-                </td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction not found
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Default (question icon)</td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction not found</td>
               </tr>
             </tbody>
           </table>
@@ -215,8 +182,7 @@ function MintNFT() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Related Hook</h2>
         <p className="text-muted-foreground">
-          For more control, use the <code>useTransactionStatus</code> hook
-          directly:
+          For more control, use the <code>useTransactionStatus</code> hook directly:
         </p>
         <CodeBlock
           code={`import { useTransactionStatus } from 'stacks-kit';
@@ -243,20 +209,18 @@ function CustomTxStatus({ txId }: { txId: string }) {
         <h2 className="text-2xl font-semibold">Features</h2>
         <ul className="list-inside list-disc space-y-2 text-muted-foreground">
           <li>
-            <strong>Auto-polling:</strong> Automatically checks status every few
-            seconds while pending
+            <strong>Auto-polling:</strong> Automatically checks status every few seconds while
+            pending
           </li>
           <li>
-            <strong>Animated transitions:</strong> Smooth badge transitions
-            using Framer Motion
+            <strong>Animated transitions:</strong> Smooth badge transitions using Framer Motion
           </li>
           <li>
-            <strong>Explorer integration:</strong> Direct link to Stacks
-            Explorer with correct network
+            <strong>Explorer integration:</strong> Direct link to Stacks Explorer with correct
+            network
           </li>
           <li>
-            <strong>Semantic badges:</strong> Color-coded badges for different
-            status types
+            <strong>Semantic badges:</strong> Color-coded badges for different status types
           </li>
         </ul>
       </div>
@@ -264,8 +228,8 @@ function CustomTxStatus({ txId }: { txId: string }) {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Explorer URLs</h2>
         <p className="text-muted-foreground">
-          The component automatically generates the correct explorer URL based
-          on the current network:
+          The component automatically generates the correct explorer URL based on the current
+          network:
         </p>
         <CodeBlock
           code={`// Mainnet

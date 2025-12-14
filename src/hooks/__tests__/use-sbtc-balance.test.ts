@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
-import { useSbtcBalance } from '../use-sbtc-balance';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useWalletStore } from '@/stores/wallet-store';
 import { MOCK_STX_ADDRESS } from '@/test/mocks/handlers';
+import { useSbtcBalance } from '../use-sbtc-balance';
 
 // Mock useWallet hook
 vi.mock('../use-wallet', () => ({
@@ -20,8 +20,7 @@ vi.mock('../use-wallet', () => ({
 const mockUseReadContract = vi.fn();
 
 vi.mock('../use-read-contract', () => ({
-  useReadContract: (options: { enabled?: boolean }) =>
-    mockUseReadContract(options),
+  useReadContract: (options: { enabled?: boolean }) => mockUseReadContract(options),
 }));
 
 describe('useSbtcBalance', () => {
@@ -146,7 +145,7 @@ describe('useSbtcBalance', () => {
       expect.objectContaining({
         contract: 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token',
         functionName: 'get-balance',
-      })
+      }),
     );
   });
 
@@ -166,7 +165,7 @@ describe('useSbtcBalance', () => {
     expect(mockUseReadContract).toHaveBeenCalledWith(
       expect.objectContaining({
         contract: 'ST1F7QA2MDF17S807EPA36TSS8AMEFY4KA9TVGWXT.sbtc-token',
-      })
+      }),
     );
   });
 
@@ -186,7 +185,7 @@ describe('useSbtcBalance', () => {
     expect(mockUseReadContract).toHaveBeenCalledWith(
       expect.objectContaining({
         enabled: true,
-      })
+      }),
     );
   });
 
@@ -204,7 +203,7 @@ describe('useSbtcBalance', () => {
     expect(mockUseReadContract).toHaveBeenCalledWith(
       expect.objectContaining({
         enabled: false,
-      })
+      }),
     );
   });
 

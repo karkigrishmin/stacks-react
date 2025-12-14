@@ -1,19 +1,10 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import {
-  useTransactionStatus,
-  type TxStatus,
-} from '@/hooks/use-transaction-status';
-import { useWallet } from '@/hooks/use-wallet';
+import { AnimatePresence, motion } from 'framer-motion';
+import { CheckCircle2, ExternalLink, HelpCircle, Loader2, XCircle } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import {
-  Loader2,
-  CheckCircle2,
-  XCircle,
-  HelpCircle,
-  ExternalLink,
-} from 'lucide-react';
+import { type TxStatus, useTransactionStatus } from '@/hooks/use-transaction-status';
+import { useWallet } from '@/hooks/use-wallet';
 import { fadeIn } from '@/lib/animation/variants';
+import { cn } from '@/lib/utils';
 
 interface TransactionStatusProps {
   txId: string | null;
@@ -101,8 +92,7 @@ export function TransactionStatus({
     );
   }
 
-  const config =
-    isLoading && !status ? getStatusConfig(null) : getStatusConfig(status);
+  const config = isLoading && !status ? getStatusConfig(null) : getStatusConfig(status);
 
   return (
     <AnimatePresence mode="wait">

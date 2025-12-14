@@ -13,17 +13,15 @@ export function DocsOverview() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">What is stacks-kit?</h2>
         <p className="text-muted-foreground">
-          stacks-kit is a React toolkit for building applications on the Stacks
-          blockchain. It provides hooks, components, and utilities for wallet
-          connection, STX transfers, and smart contract interactions.
+          stacks-kit is a React toolkit for building applications on the Stacks blockchain. It
+          provides hooks, components, and utilities for wallet connection, STX transfers, and smart
+          contract interactions.
         </p>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Quick Start</h2>
-        <p className="text-muted-foreground">
-          Create a new project with stacks-kit in seconds:
-        </p>
+        <p className="text-muted-foreground">Create a new project with stacks-kit in seconds:</p>
         <CodeBlock code="npm create stacks-kit@latest" language="bash" />
       </div>
 

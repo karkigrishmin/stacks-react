@@ -1,4 +1,4 @@
-import { http, HttpResponse } from 'msw';
+import { HttpResponse, http } from 'msw';
 
 // Stacks API base URLs
 const MAINNET_API = 'https://api.hiro.so';
@@ -7,8 +7,7 @@ const TESTNET_API = 'https://api.testnet.hiro.so';
 // Mock wallet addresses for testing
 export const MOCK_STX_ADDRESS = 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM';
 export const MOCK_BTC_ADDRESS = 'bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq';
-export const MOCK_TX_ID =
-  '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef';
+export const MOCK_TX_ID = '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef';
 
 // Mock balance response matching balanceResponseSchema
 const mockBalanceResponse = {
@@ -65,20 +64,14 @@ export const handlers = [
   }),
 
   // Read-only contract call - mainnet
-  http.post(
-    `${MAINNET_API}/v2/contracts/call-read/:address/:contract/:function`,
-    () => {
-      return HttpResponse.json(mockReadOnlyResponse);
-    }
-  ),
+  http.post(`${MAINNET_API}/v2/contracts/call-read/:address/:contract/:function`, () => {
+    return HttpResponse.json(mockReadOnlyResponse);
+  }),
 
   // Read-only contract call - testnet
-  http.post(
-    `${TESTNET_API}/v2/contracts/call-read/:address/:contract/:function`,
-    () => {
-      return HttpResponse.json(mockReadOnlyResponse);
-    }
-  ),
+  http.post(`${TESTNET_API}/v2/contracts/call-read/:address/:contract/:function`, () => {
+    return HttpResponse.json(mockReadOnlyResponse);
+  }),
 
   // Transaction status - mainnet
   http.get(`${MAINNET_API}/extended/v1/tx/:txid`, ({ params }) => {

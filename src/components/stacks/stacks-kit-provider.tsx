@@ -1,6 +1,6 @@
-import { createContext, useContext, type ReactNode } from 'react';
-import { ThemeProvider, useTheme } from '@/components/theme-provider';
+import { createContext, type ReactNode, useContext } from 'react';
 import { Toaster } from 'sonner';
+import { ThemeProvider, useTheme } from '@/components/theme-provider';
 
 type Theme = 'dark' | 'light' | 'system';
 type Network = 'mainnet' | 'testnet';
@@ -18,9 +18,7 @@ interface StacksKitContextValue {
   defaultNetwork: Network;
 }
 
-const StacksKitContext = createContext<StacksKitContextValue | undefined>(
-  undefined
-);
+const StacksKitContext = createContext<StacksKitContextValue | undefined>(undefined);
 
 interface StacksKitProviderProps {
   children: ReactNode;
@@ -54,15 +52,10 @@ function StacksKitProviderInner({ children, config }: StacksKitProviderProps) {
   );
 }
 
-export function StacksKitProvider({
-  children,
-  config,
-}: StacksKitProviderProps) {
+export function StacksKitProvider({ children, config }: StacksKitProviderProps) {
   return (
     <ThemeProvider defaultTheme={config?.theme ?? 'dark'}>
-      <StacksKitProviderInner config={config}>
-        {children}
-      </StacksKitProviderInner>
+      <StacksKitProviderInner config={config}>{children}</StacksKitProviderInner>
     </ThemeProvider>
   );
 }

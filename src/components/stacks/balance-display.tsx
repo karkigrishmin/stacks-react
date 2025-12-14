@@ -1,8 +1,8 @@
-import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
-import { useBalance } from '@/hooks/use-balance';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useBalance } from '@/hooks/use-balance';
 import { fadeIn } from '@/lib/animation/variants';
+import { cn } from '@/lib/utils';
 
 interface BalanceDisplayProps {
   address?: string;
@@ -10,11 +10,7 @@ interface BalanceDisplayProps {
   className?: string;
 }
 
-export function BalanceDisplay({
-  address,
-  showSymbol = true,
-  className,
-}: BalanceDisplayProps) {
+export function BalanceDisplay({ address, showSymbol = true, className }: BalanceDisplayProps) {
   const { balance, isLoading, isError, error } = useBalance({ address });
 
   if (!balance && !isLoading && !isError) {
@@ -40,15 +36,10 @@ export function BalanceDisplay({
         variants={fadeIn}
         initial="hidden"
         animate="visible"
-        className={cn(
-          'text-sm font-medium text-[var(--foreground)]',
-          className
-        )}
+        className={cn('text-sm font-medium text-[var(--foreground)]', className)}
       >
         {balance}
-        {showSymbol && (
-          <span className="ml-1 text-[var(--foreground-secondary)]">STX</span>
-        )}
+        {showSymbol && <span className="ml-1 text-[var(--foreground-secondary)]">STX</span>}
       </motion.span>
     </AnimatePresence>
   );

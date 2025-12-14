@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Button } from './ui/button';
 import { staggerContainer, staggerItem } from '@/lib/animation/variants';
+import { Button } from './ui/button';
 
 export function CTA() {
   return (
@@ -23,16 +23,12 @@ export function CTA() {
             variants={staggerItem}
             className="text-display-md font-bold md:text-display-lg"
           >
-            Ready to build on{' '}
-            <span className="gradient-text-bitcoin">Stacks</span>?
+            Ready to build on <span className="gradient-text-bitcoin">Stacks</span>?
           </motion.h2>
 
-          <motion.p
-            variants={staggerItem}
-            className="mt-4 text-body-lg text-foreground-secondary"
-          >
-            Get started with stacks-kit today and ship your next Bitcoin L2
-            application faster than ever.
+          <motion.p variants={staggerItem} className="mt-4 text-body-lg text-foreground-secondary">
+            Get started with stacks-kit today and ship your next Bitcoin L2 application faster than
+            ever.
           </motion.p>
 
           <motion.div

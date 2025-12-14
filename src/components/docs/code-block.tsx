@@ -1,6 +1,6 @@
 import { Highlight, themes } from 'prism-react-renderer';
-import { cn } from '@/lib/utils';
 import { CopyButton } from '@/components/ui/copy-button';
+import { cn } from '@/lib/utils';
 
 interface CodeBlockProps {
   code: string;
@@ -27,16 +27,9 @@ export function CodeBlock({
           value={code}
           className="absolute right-2 top-2 z-10 h-8 w-8 opacity-0 transition-opacity hover:opacity-100 focus:opacity-100"
         />
-        <Highlight
-          theme={themes.oneDark}
-          code={code.trim()}
-          language={language}
-        >
+        <Highlight theme={themes.oneDark} code={code.trim()} language={language}>
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre
-              className={cn(className, 'overflow-x-auto p-4 text-sm')}
-              style={style}
-            >
+            <pre className={cn(className, 'overflow-x-auto p-4 text-sm')} style={style}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })}>
                   {showLineNumbers && (

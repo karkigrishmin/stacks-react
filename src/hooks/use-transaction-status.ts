@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { useWallet } from './use-wallet';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { parseTxStatusResponse } from '@/lib/validation';
+import { useWallet } from './use-wallet';
 
 const API_ENDPOINTS = {
   mainnet: 'https://api.hiro.so',
@@ -38,21 +38,13 @@ interface UseTransactionStatusReturn {
 }
 
 function isFinalStatus(status: TxStatus): boolean {
-  return (
-    status === 'success' ||
-    status.startsWith('abort_') ||
-    status.startsWith('dropped_')
-  );
+  return status === 'success' || status.startsWith('abort_') || status.startsWith('dropped_');
 }
 
 export function useTransactionStatus(
-  options: UseTransactionStatusOptions
+  options: UseTransactionStatusOptions,
 ): UseTransactionStatusReturn {
-  const {
-    txId,
-    pollingInterval = DEFAULT_POLLING_INTERVAL,
-    enabled = true,
-  } = options;
+  const { txId, pollingInterval = DEFAULT_POLLING_INTERVAL, enabled = true } = options;
   const { network } = useWallet();
 
   const [status, setStatus] = useState<TxStatus | null>(null);
@@ -110,9 +102,7 @@ export function useTransactionStatus(
       }
 
       const fetchError =
-        err instanceof Error
-          ? err
-          : new Error('Failed to fetch transaction status');
+        err instanceof Error ? err : new Error('Failed to fetch transaction status');
       setError(fetchError);
       return false;
     }
@@ -157,8 +147,7 @@ export function useTransactionStatus(
 
   const isConfirmed = status === 'success';
   const isFailed =
-    status !== null &&
-    (status.startsWith('abort_') || status.startsWith('dropped_'));
+    status !== null && (status.startsWith('abort_') || status.startsWith('dropped_'));
   const isPending = status === 'pending';
 
   return {

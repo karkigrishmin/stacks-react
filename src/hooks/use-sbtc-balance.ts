@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
 import { principalCV } from '@stacks/transactions';
-import { useWallet } from './use-wallet';
+import { useMemo } from 'react';
 import { useReadContract } from './use-read-contract';
+import { useWallet } from './use-wallet';
 
 const SBTC_CONTRACTS = {
   mainnet: 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token',
@@ -24,8 +24,7 @@ interface UseSbtcBalanceReturn {
 }
 
 function formatSbtcBalance(rawBalance: bigint | number | string): string {
-  const raw =
-    typeof rawBalance === 'string' ? BigInt(rawBalance) : BigInt(rawBalance);
+  const raw = typeof rawBalance === 'string' ? BigInt(rawBalance) : BigInt(rawBalance);
   const divisor = BigInt(10 ** SBTC_DECIMALS);
   const whole = raw / divisor;
   const fraction = raw % divisor;
@@ -40,9 +39,7 @@ function formatSbtcBalance(rawBalance: bigint | number | string): string {
   return `${whole.toLocaleString()}.${trimmedFraction}`;
 }
 
-export function useSbtcBalance(
-  options: UseSbtcBalanceOptions = {}
-): UseSbtcBalanceReturn {
+export function useSbtcBalance(options: UseSbtcBalanceOptions = {}): UseSbtcBalanceReturn {
   const { address: propAddress, enabled = true } = options;
   const { address: walletAddress, network } = useWallet();
 
@@ -54,9 +51,7 @@ export function useSbtcBalance(
     return [principalCV(address)];
   }, [address]);
 
-  const { data, isLoading, isError, error, refetch } = useReadContract<
-    { value: bigint } | bigint
-  >({
+  const { data, isLoading, isError, error, refetch } = useReadContract<{ value: bigint } | bigint>({
     contract,
     functionName: 'get-balance',
     args,
@@ -66,8 +61,7 @@ export function useSbtcBalance(
   const balance = useMemo(() => {
     if (data === null || data === undefined) return null;
 
-    const rawValue =
-      typeof data === 'object' && 'value' in data ? data.value : data;
+    const rawValue = typeof data === 'object' && 'value' in data ? data.value : data;
 
     try {
       return formatSbtcBalance(rawValue);

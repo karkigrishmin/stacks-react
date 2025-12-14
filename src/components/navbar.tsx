@@ -1,13 +1,13 @@
+import { AnimatePresence, motion } from 'framer-motion';
+import { BookOpen, Github, Layers, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Github, BookOpen, Layers } from 'lucide-react';
-import { Logo } from './logo';
-import { ThemeToggle } from './theme-toggle';
-import { ConnectButton } from './stacks/connect-button';
-import { Button } from './ui/button';
-import { cn } from '@/lib/utils';
 import { fadeIn, slideDown } from '@/lib/animation/variants';
+import { cn } from '@/lib/utils';
+import { Logo } from './logo';
+import { ConnectButton } from './stacks/connect-button';
+import { ThemeToggle } from './theme-toggle';
+import { Button } from './ui/button';
 
 const GITHUB_URL = 'https://github.com/your-org/stacks-kit';
 
@@ -26,7 +26,7 @@ export function Navbar() {
         'sticky top-0 z-50',
         'border-b border-border',
         'backdrop-blur-[12px]',
-        'bg-background/80 dark:bg-[rgba(13,13,15,0.8)]'
+        'bg-background/80 dark:bg-[rgba(13,13,15,0.8)]',
       )}
     >
       <nav className="container flex h-16 items-center justify-between">
@@ -59,11 +59,7 @@ export function Navbar() {
             aria-expanded={mobileMenuOpen}
             aria-controls="mobile-menu"
           >
-            {mobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
         </div>
       </nav>
@@ -81,7 +77,7 @@ export function Navbar() {
               'absolute left-0 right-0 top-16 z-40',
               'border-b border-border',
               'bg-background/95 backdrop-blur-lg',
-              'md:hidden'
+              'md:hidden',
             )}
           >
             <div className="container py-4">
@@ -132,17 +128,12 @@ function NavLink({ href, label, icon: Icon, external }: NavLinkProps) {
     'flex items-center gap-2 px-3 py-2 rounded-md',
     'text-body-sm text-foreground-secondary',
     'hover:text-foreground hover:bg-background-secondary',
-    'transition-colors duration-fast'
+    'transition-colors duration-fast',
   );
 
   if (external) {
     return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
         <Icon className="h-4 w-4" />
         {label}
       </a>
@@ -177,7 +168,7 @@ function MobileNavLink({
     'flex items-center gap-3 px-4 py-3 rounded-lg',
     'text-body-md text-foreground',
     'hover:bg-background-secondary',
-    'transition-colors duration-fast'
+    'transition-colors duration-fast',
   );
 
   if (external) {

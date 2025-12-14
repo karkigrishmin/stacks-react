@@ -1,12 +1,7 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import {
-  cvToHex,
-  hexToCV,
-  cvToValue,
-  type ClarityValue,
-} from '@stacks/transactions';
-import { useWallet } from './use-wallet';
+import { type ClarityValue, cvToHex, cvToValue, hexToCV } from '@stacks/transactions';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { parseReadContractResponse } from '@/lib/validation';
+import { useWallet } from './use-wallet';
 
 const API_ENDPOINTS = {
   mainnet: 'https://api.hiro.so',
@@ -34,9 +29,7 @@ interface UseReadContractReturn<T> {
 function parseContractId(contract: string): { address: string; name: string } {
   const parts = contract.split('.');
   if (parts.length !== 2) {
-    throw new Error(
-      `Invalid contract format: "${contract}". Expected "address.contract-name"`
-    );
+    throw new Error(`Invalid contract format: "${contract}". Expected "address.contract-name"`);
   }
   return { address: parts[0], name: parts[1] };
 }
@@ -46,7 +39,7 @@ function serializeArgs(args: ClarityValue[]): string[] {
 }
 
 export function useReadContract<T = unknown>(
-  options: UseReadContractOptions
+  options: UseReadContractOptions,
 ): UseReadContractReturn<T> {
   const { contract, functionName, args = [], enabled = true } = options;
   const { network } = useWallet();
@@ -115,8 +108,7 @@ export function useReadContract<T = unknown>(
       if (err instanceof Error && err.name === 'AbortError') {
         return;
       }
-      const fetchError =
-        err instanceof Error ? err : new Error('Failed to read contract');
+      const fetchError = err instanceof Error ? err : new Error('Failed to read contract');
       setError(fetchError);
       setIsError(true);
       setData(null);

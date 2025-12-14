@@ -43,21 +43,15 @@ export function DocsInstallation() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import Styles</h2>
-        <p className="text-muted-foreground">
-          Import the CSS in your entry file:
-        </p>
-        <CodeBlock
-          code={`import 'stacks-kit/styles.css';`}
-          language="tsx"
-          filename="main.tsx"
-        />
+        <p className="text-muted-foreground">Import the CSS in your entry file:</p>
+        <CodeBlock code={`import 'stacks-kit/styles.css';`} language="tsx" filename="main.tsx" />
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">TypeScript</h2>
         <p className="text-muted-foreground">
-          stacks-kit is written in TypeScript and includes type definitions out
-          of the box. No additional setup required.
+          stacks-kit is written in TypeScript and includes type definitions out of the box. No
+          additional setup required.
         </p>
       </div>
     </div>

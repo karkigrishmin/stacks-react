@@ -6,17 +6,14 @@ export function DocsAddressDisplay() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">AddressDisplay</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          A component for displaying Stacks addresses with optional truncation
-          and copy functionality.
+          A component for displaying Stacks addresses with optional truncation and copy
+          functionality.
         </p>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { AddressDisplay } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { AddressDisplay } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -53,17 +50,13 @@ function WalletInfo() {
                 <td className="px-4 py-2 font-mono text-xs">address</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">required</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  The Stacks address to display
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">The Stacks address to display</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">truncate</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
                 <td className="px-4 py-2 font-mono text-xs">true</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Whether to truncate the address
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Whether to truncate the address</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">truncateLength</td>
@@ -85,9 +78,7 @@ function WalletInfo() {
                 <td className="px-4 py-2 font-mono text-xs">className</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">-</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Additional CSS classes
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Additional CSS classes</td>
               </tr>
             </tbody>
           </table>
@@ -131,33 +122,27 @@ function WalletInfo() {
         <h2 className="text-2xl font-semibold">Features</h2>
         <ul className="list-inside list-disc space-y-2 text-muted-foreground">
           <li>
-            <strong>Click to copy:</strong> Copies the full address to clipboard
-            with visual feedback
+            <strong>Click to copy:</strong> Copies the full address to clipboard with visual
+            feedback
           </li>
           <li>
-            <strong>Toast notification:</strong> Shows success/error message via
-            sonner
+            <strong>Toast notification:</strong> Shows success/error message via sonner
           </li>
           <li>
-            <strong>Monospace font:</strong> Uses Geist Mono for better
-            readability
+            <strong>Monospace font:</strong> Uses Geist Mono for better readability
           </li>
           <li>
-            <strong>Hover state:</strong> Subtle background change on hover when
-            copyable
+            <strong>Hover state:</strong> Subtle background change on hover when copyable
           </li>
           <li>
-            <strong>Tap animation:</strong> Framer Motion spring animation on
-            click
+            <strong>Tap animation:</strong> Framer Motion spring animation on click
           </li>
         </ul>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Styling</h2>
-        <p className="text-muted-foreground">
-          Customize the appearance with the className prop:
-        </p>
+        <p className="text-muted-foreground">Customize the appearance with the className prop:</p>
         <CodeBlock
           code={`<AddressDisplay
   address={address}

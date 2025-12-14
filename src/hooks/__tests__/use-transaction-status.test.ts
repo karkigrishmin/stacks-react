@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
-import { useTransactionStatus } from '../use-transaction-status';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useWalletStore } from '@/stores/wallet-store';
 import { MOCK_TX_ID } from '@/test/mocks/handlers';
+import { useTransactionStatus } from '../use-transaction-status';
 
 // Mock useWallet hook
 vi.mock('../use-wallet', () => ({
@@ -47,9 +47,7 @@ describe('useTransactionStatus', () => {
   it('should fetch transaction status when txId is provided', async () => {
     vi.useRealTimers();
 
-    const { result } = renderHook(() =>
-      useTransactionStatus({ txId: MOCK_TX_ID })
-    );
+    const { result } = renderHook(() => useTransactionStatus({ txId: MOCK_TX_ID }));
 
     await waitFor(() => {
       expect(result.current.isLoading).toBe(false);
@@ -64,9 +62,7 @@ describe('useTransactionStatus', () => {
   it('should set isConfirmed when status is success', async () => {
     vi.useRealTimers();
 
-    const { result } = renderHook(() =>
-      useTransactionStatus({ txId: MOCK_TX_ID })
-    );
+    const { result } = renderHook(() => useTransactionStatus({ txId: MOCK_TX_ID }));
 
     await waitFor(() => {
       expect(result.current.status).toBe('success');
@@ -77,9 +73,7 @@ describe('useTransactionStatus', () => {
   });
 
   it('should respect enabled option', () => {
-    const { result } = renderHook(() =>
-      useTransactionStatus({ txId: MOCK_TX_ID, enabled: false })
-    );
+    const { result } = renderHook(() => useTransactionStatus({ txId: MOCK_TX_ID, enabled: false }));
 
     expect(result.current.status).toBeNull();
     expect(result.current.isLoading).toBe(false);
@@ -88,9 +82,7 @@ describe('useTransactionStatus', () => {
   it('should return block height when available', async () => {
     vi.useRealTimers();
 
-    const { result } = renderHook(() =>
-      useTransactionStatus({ txId: MOCK_TX_ID })
-    );
+    const { result } = renderHook(() => useTransactionStatus({ txId: MOCK_TX_ID }));
 
     await waitFor(() => {
       expect(result.current.isLoading).toBe(false);
@@ -104,7 +96,7 @@ describe('useTransactionStatus', () => {
 
     const { result, rerender } = renderHook(
       ({ txId }: { txId: string | null }) => useTransactionStatus({ txId }),
-      { initialProps: { txId: MOCK_TX_ID as string | null } }
+      { initialProps: { txId: MOCK_TX_ID as string | null } },
     );
 
     await waitFor(() => {
@@ -121,9 +113,7 @@ describe('useTransactionStatus', () => {
     vi.useRealTimers();
     useWalletStore.setState({ network: 'testnet' });
 
-    const { result } = renderHook(() =>
-      useTransactionStatus({ txId: MOCK_TX_ID })
-    );
+    const { result } = renderHook(() => useTransactionStatus({ txId: MOCK_TX_ID }));
 
     await waitFor(() => {
       expect(result.current.isLoading).toBe(false);
@@ -134,7 +124,7 @@ describe('useTransactionStatus', () => {
 
   it('should accept custom polling interval', () => {
     const { result } = renderHook(() =>
-      useTransactionStatus({ txId: MOCK_TX_ID, pollingInterval: 5000 })
+      useTransactionStatus({ txId: MOCK_TX_ID, pollingInterval: 5000 }),
     );
 
     expect(result.current).toBeDefined();

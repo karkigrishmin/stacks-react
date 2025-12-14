@@ -1,8 +1,8 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
-import { useBalance } from '../use-balance';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useWalletStore } from '@/stores/wallet-store';
 import { MOCK_STX_ADDRESS } from '@/test/mocks/handlers';
+import { useBalance } from '../use-balance';
 
 // Mock useWallet hook
 vi.mock('../use-wallet', () => ({

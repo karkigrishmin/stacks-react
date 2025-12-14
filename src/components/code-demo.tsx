@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { CodeBlock } from './ui/code-block';
-import { WalletDemo } from './stacks/wallet-demo';
 import { staggerContainer, staggerItem } from '@/lib/animation/variants';
+import { WalletDemo } from './stacks/wallet-demo';
+import { CodeBlock } from './ui/code-block';
 
 const exampleCode = `import { useWallet } from 'stacks-kit';
 
@@ -60,10 +60,7 @@ export function CodeDemo() {
             </motion.div>
 
             {/* Live demo */}
-            <motion.div
-              variants={staggerItem}
-              className="flex items-center justify-center"
-            >
+            <motion.div variants={staggerItem} className="flex items-center justify-center">
               <WalletDemo />
             </motion.div>
           </div>

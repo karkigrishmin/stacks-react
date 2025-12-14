@@ -1,18 +1,13 @@
 import { motion } from 'framer-motion';
-import { Wallet, Send, Code2, FileCode, Palette, Globe } from 'lucide-react';
+import { Code2, FileCode, Globe, Palette, Send, Wallet } from 'lucide-react';
+import { cardHover, staggerContainer, staggerItem } from '@/lib/animation/variants';
 import { Card } from './ui/card';
-import {
-  staggerContainer,
-  staggerItem,
-  cardHover,
-} from '@/lib/animation/variants';
 
 const features = [
   {
     icon: Wallet,
     title: 'Wallet Connection',
-    description:
-      'Connect to Leather, Xverse, and other Stacks wallets with a beautiful modal UI.',
+    description: 'Connect to Leather, Xverse, and other Stacks wallets with a beautiful modal UI.',
   },
   {
     icon: Send,
@@ -60,12 +55,10 @@ export function Features() {
           {/* Section header */}
           <motion.div variants={staggerItem} className="text-center">
             <h2 className="text-display-md font-bold">
-              Everything you need to build on{' '}
-              <span className="text-bitcoin-orange">Stacks</span>
+              Everything you need to build on <span className="text-bitcoin-orange">Stacks</span>
             </h2>
             <p className="mt-4 text-body-lg text-foreground-secondary">
-              A complete toolkit for integrating Stacks blockchain into your
-              React applications.
+              A complete toolkit for integrating Stacks blockchain into your React applications.
             </p>
           </motion.div>
 
@@ -100,9 +93,7 @@ function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
           <Icon className="text-bitcoin-orange h-6 w-6" />
         </div>
         <h3 className="text-heading-sm font-semibold">{title}</h3>
-        <p className="mt-2 text-body-sm text-foreground-secondary">
-          {description}
-        </p>
+        <p className="mt-2 text-body-sm text-foreground-secondary">{description}</p>
       </Card>
     </motion.div>
   );

@@ -14,9 +14,7 @@ interface ThemeProviderState {
   resolvedTheme: 'dark' | 'light';
 }
 
-const ThemeProviderContext = createContext<ThemeProviderState | undefined>(
-  undefined
-);
+const ThemeProviderContext = createContext<ThemeProviderState | undefined>(undefined);
 
 export function ThemeProvider({
   children,
@@ -34,9 +32,7 @@ export function ThemeProvider({
   const [resolvedTheme, setResolvedTheme] = useState<'dark' | 'light'>(() => {
     if (typeof window === 'undefined') return 'dark';
     if (theme === 'system') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     return theme;
   });
@@ -49,9 +45,7 @@ export function ThemeProvider({
     let effectiveTheme: 'dark' | 'light';
 
     if (theme === 'system') {
-      effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
+      effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     } else {
       effectiveTheme = theme;
     }
@@ -86,11 +80,7 @@ export function ThemeProvider({
     resolvedTheme,
   };
 
-  return (
-    <ThemeProviderContext.Provider value={value}>
-      {children}
-    </ThemeProviderContext.Provider>
-  );
+  return <ThemeProviderContext.Provider value={value}>{children}</ThemeProviderContext.Provider>;
 }
 
 export function useTheme() {

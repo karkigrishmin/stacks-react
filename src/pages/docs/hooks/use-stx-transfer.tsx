@@ -12,10 +12,7 @@ export function DocsUseStxTransfer() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { useStxTransfer } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { useStxTransfer } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -120,9 +117,7 @@ function SendWithTracking() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">recipient</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Stacks address to send to
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Stacks address to send to</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">amount</td>
@@ -134,9 +129,7 @@ function SendWithTracking() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">memo</td>
                 <td className="px-4 py-2 font-mono text-xs">string?</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Optional memo (max 34 bytes)
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Optional memo (max 34 bytes)</td>
               </tr>
             </tbody>
           </table>
@@ -157,47 +150,33 @@ function SendWithTracking() {
             <tbody className="divide-y">
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">transfer</td>
-                <td className="px-4 py-2 font-mono text-xs">
-                  (params) =&gt; Promise
-                </td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Function to initiate transfer
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">(params) =&gt; Promise</td>
+                <td className="px-4 py-2 text-muted-foreground">Function to initiate transfer</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isLoading</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Whether transfer is in progress
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Whether transfer is in progress</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isSuccess</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Whether transfer succeeded
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Whether transfer succeeded</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">txId</td>
                 <td className="px-4 py-2 font-mono text-xs">string | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction ID if successful
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction ID if successful</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">error</td>
                 <td className="px-4 py-2 font-mono text-xs">Error | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Error if transfer failed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Error if transfer failed</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">reset</td>
                 <td className="px-4 py-2 font-mono text-xs">() =&gt; void</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Reset state for new transfer
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Reset state for new transfer</td>
               </tr>
             </tbody>
           </table>

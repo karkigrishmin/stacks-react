@@ -6,24 +6,20 @@ export function DocsBalanceDisplay() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">BalanceDisplay</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          A component for displaying STX balance with loading states and error
-          handling.
+          A component for displaying STX balance with loading states and error handling.
         </p>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { BalanceDisplay } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { BalanceDisplay } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Basic Usage</h2>
         <p className="text-muted-foreground">
-          When used without an address prop, BalanceDisplay automatically uses
-          the connected wallet address:
+          When used without an address prop, BalanceDisplay automatically uses the connected wallet
+          address:
         </p>
         <CodeBlock
           code={`import { BalanceDisplay, useWallet } from 'stacks-kit';
@@ -58,8 +54,7 @@ function WalletBalance() {
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">-</td>
                 <td className="px-4 py-2 text-muted-foreground">
-                  Address to fetch balance for (uses connected wallet if not
-                  provided)
+                  Address to fetch balance for (uses connected wallet if not provided)
                 </td>
               </tr>
               <tr>
@@ -74,9 +69,7 @@ function WalletBalance() {
                 <td className="px-4 py-2 font-mono text-xs">className</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">-</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Additional CSS classes
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Additional CSS classes</td>
               </tr>
             </tbody>
           </table>
@@ -120,8 +113,7 @@ function WalletBalance() {
             <strong>Error:</strong> Displays error message in red
           </li>
           <li>
-            <strong>Success:</strong> Shows formatted balance with fade-in
-            animation
+            <strong>Success:</strong> Shows formatted balance with fade-in animation
           </li>
           <li>
             <strong>No address:</strong> Returns null (renders nothing)
@@ -132,8 +124,7 @@ function WalletBalance() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Related Hook</h2>
         <p className="text-muted-foreground">
-          For more control over balance fetching, use the{' '}
-          <code>useBalance</code> hook directly:
+          For more control over balance fetching, use the <code>useBalance</code> hook directly:
         </p>
         <CodeBlock
           code={`import { useBalance } from 'stacks-kit';
@@ -158,9 +149,7 @@ function CustomBalanceDisplay() {
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">API Details</h2>
-        <p className="text-muted-foreground">
-          Balance is fetched from the Hiro API endpoint:
-        </p>
+        <p className="text-muted-foreground">Balance is fetched from the Hiro API endpoint:</p>
         <CodeBlock
           code={`// Mainnet
 GET https://api.hiro.so/extended/v1/address/{address}/balances
@@ -170,8 +159,8 @@ GET https://api.testnet.hiro.so/extended/v1/address/{address}/balances`}
           language="bash"
         />
         <p className="text-muted-foreground">
-          The balance is automatically formatted with proper decimal places (6
-          decimals for STX) and includes thousands separators.
+          The balance is automatically formatted with proper decimal places (6 decimals for STX) and
+          includes thousands separators.
         </p>
       </div>
     </div>

@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { renderHook, act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { MOCK_STX_ADDRESS, MOCK_TX_ID } from '@/test/mocks/handlers';
 import { useStxTransfer } from '../use-stx-transfer';
-import { MOCK_TX_ID, MOCK_STX_ADDRESS } from '@/test/mocks/handlers';
 
 // Mock @stacks/connect
 const mockRequest = vi.fn();

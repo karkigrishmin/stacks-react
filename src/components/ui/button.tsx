@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { motion, type HTMLMotionProps } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { type HTMLMotionProps, motion } from 'framer-motion';
+import * as React from 'react';
 import { buttonHover, buttonTap } from '@/lib/animation/variants';
+import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
   'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50',
@@ -14,8 +14,7 @@ const buttonVariants = cva(
           'bg-[var(--bitcoin-orange)] text-[var(--primary-foreground)] hover:bg-[var(--bitcoin-orange-light)] active:bg-[var(--bitcoin-orange-dark)]',
         secondary:
           'bg-transparent text-foreground border border-[var(--border)] hover:bg-[var(--background-secondary)] hover:border-[var(--border-strong)]',
-        ghost:
-          'bg-transparent text-foreground hover:bg-[var(--background-secondary)]',
+        ghost: 'bg-transparent text-foreground hover:bg-[var(--background-secondary)]',
         outline:
           'bg-transparent text-[var(--bitcoin-orange)] border border-[var(--bitcoin-orange)] hover:bg-[var(--bitcoin-orange-muted)]',
         destructive: 'bg-[var(--error)] text-white hover:bg-[var(--error)]/90',
@@ -32,12 +31,11 @@ const buttonVariants = cva(
       variant: 'primary',
       size: 'default',
     },
-  }
+  },
 );
 
 export interface ButtonProps
-  extends
-    Omit<HTMLMotionProps<'button'>, 'ref'>,
+  extends Omit<HTMLMotionProps<'button'>, 'ref'>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
@@ -63,7 +61,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
 Button.displayName = 'Button';
 

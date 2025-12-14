@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { useWallet } from './use-wallet';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { parseBalanceResponse } from '@/lib/validation';
+import { useWallet } from './use-wallet';
 
 const API_ENDPOINTS = {
   mainnet: 'https://api.hiro.so',
@@ -24,7 +24,7 @@ interface UseBalanceReturn {
 }
 
 function formatBalance(microStx: string): string {
-  const stx = Number(microStx) / Math.pow(10, MICRO_STX_DECIMALS);
+  const stx = Number(microStx) / 10 ** MICRO_STX_DECIMALS;
   return stx.toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: MICRO_STX_DECIMALS,
@@ -63,10 +63,9 @@ export function useBalance(options: UseBalanceOptions = {}): UseBalanceReturn {
 
     try {
       const baseUrl = API_ENDPOINTS[network];
-      const response = await fetch(
-        `${baseUrl}/extended/v1/address/${address}/balances`,
-        { signal: abortControllerRef.current.signal }
-      );
+      const response = await fetch(`${baseUrl}/extended/v1/address/${address}/balances`, {
+        signal: abortControllerRef.current.signal,
+      });
 
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
@@ -80,8 +79,7 @@ export function useBalance(options: UseBalanceOptions = {}): UseBalanceReturn {
       if (err instanceof Error && err.name === 'AbortError') {
         return;
       }
-      const fetchError =
-        err instanceof Error ? err : new Error('Failed to fetch balance');
+      const fetchError = err instanceof Error ? err : new Error('Failed to fetch balance');
       setError(fetchError);
       setIsError(true);
       setBalance(null);

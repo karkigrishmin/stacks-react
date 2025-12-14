@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { Download, Star, Wallet, Code } from 'lucide-react';
-import { Card } from './ui/card';
+import { Code, Download, Star, Wallet } from 'lucide-react';
 import { staggerContainer, staggerItem } from '@/lib/animation/variants';
+import { Card } from './ui/card';
 
 const stats = [
   {

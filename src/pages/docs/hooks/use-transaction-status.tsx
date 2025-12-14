@@ -1,16 +1,17 @@
+import { Loader2 } from 'lucide-react';
 import { useState } from 'react';
 import { CodeBlock } from '@/components/docs/code-block';
-import { useTransactionStatus } from '@/hooks/use-transaction-status';
 import { TransactionStatus } from '@/components/stacks/transaction-status';
-import { Loader2 } from 'lucide-react';
+import { useTransactionStatus } from '@/hooks/use-transaction-status';
 
 function LiveExample() {
   const [txId, setTxId] = useState('');
 
-  const { status, isConfirmed, isFailed, isPending, blockHeight, isLoading } =
-    useTransactionStatus({
+  const { status, isConfirmed, isFailed, isPending, blockHeight, isLoading } = useTransactionStatus(
+    {
       txId: txId || null,
-    });
+    },
+  );
 
   return (
     <div className="space-y-4 rounded-lg border p-4">
@@ -65,8 +66,8 @@ function LiveExample() {
 
       {!txId && (
         <p className="text-sm text-muted-foreground">
-          Paste a transaction ID to see its status. The hook will poll until the
-          transaction is confirmed or failed.
+          Paste a transaction ID to see its status. The hook will poll until the transaction is
+          confirmed or failed.
         </p>
       )}
     </div>
@@ -77,21 +78,15 @@ export function DocsUseTransactionStatus() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">
-          useTransactionStatus
-        </h1>
+        <h1 className="text-3xl font-bold tracking-tight">useTransactionStatus</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          Hook for tracking transaction confirmation status with automatic
-          polling.
+          Hook for tracking transaction confirmation status with automatic polling.
         </p>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { useTransactionStatus } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { useTransactionStatus } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -137,9 +132,7 @@ export function DocsUseTransactionStatus() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">txId</td>
                 <td className="px-4 py-2 font-mono text-xs">string | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction ID to track
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction ID to track</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">pollingInterval</td>
@@ -175,16 +168,12 @@ export function DocsUseTransactionStatus() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">status</td>
                 <td className="px-4 py-2 font-mono text-xs">TxStatus | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Current transaction status
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Current transaction status</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isConfirmed</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  True if status is 'success'
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">True if status is 'success'</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isFailed</td>
@@ -196,30 +185,22 @@ export function DocsUseTransactionStatus() {
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isPending</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  True if status is 'pending'
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">True if status is 'pending'</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">blockHeight</td>
                 <td className="px-4 py-2 font-mono text-xs">number | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Block height if confirmed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Block height if confirmed</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">isLoading</td>
                 <td className="px-4 py-2 font-mono text-xs">boolean</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  True during initial fetch
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">True during initial fetch</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">error</td>
                 <td className="px-4 py-2 font-mono text-xs">Error | null</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Error if fetch failed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Error if fetch failed</td>
               </tr>
             </tbody>
           </table>
@@ -239,31 +220,19 @@ export function DocsUseTransactionStatus() {
             <tbody className="divide-y">
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">pending</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction is in mempool
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction is in mempool</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">success</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction confirmed
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction confirmed</td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">
-                  abort_by_response
-                </td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Contract returned error
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">abort_by_response</td>
+                <td className="px-4 py-2 text-muted-foreground">Contract returned error</td>
               </tr>
               <tr>
-                <td className="px-4 py-2 font-mono text-xs">
-                  abort_by_post_condition
-                </td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Post-condition failed
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">abort_by_post_condition</td>
+                <td className="px-4 py-2 text-muted-foreground">Post-condition failed</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">dropped_*</td>
@@ -273,9 +242,7 @@ export function DocsUseTransactionStatus() {
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">not_found</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Transaction not found
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Transaction not found</td>
               </tr>
             </tbody>
           </table>
@@ -285,9 +252,8 @@ export function DocsUseTransactionStatus() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Auto-Stop Behavior</h2>
         <p className="text-muted-foreground">
-          Polling automatically stops when the transaction reaches a final state
-          (success, abort_*, or dropped_*). This prevents unnecessary API calls
-          after the transaction outcome is known.
+          Polling automatically stops when the transaction reaches a final state (success, abort_*,
+          or dropped_*). This prevents unnecessary API calls after the transaction outcome is known.
         </p>
       </div>
     </div>

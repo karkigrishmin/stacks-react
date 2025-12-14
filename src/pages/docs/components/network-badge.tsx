@@ -6,17 +6,13 @@ export function DocsNetworkBadge() {
       <div>
         <h1 className="text-3xl font-bold tracking-tight">NetworkBadge</h1>
         <p className="mt-2 text-lg text-muted-foreground">
-          A badge component that displays the current Stacks network (mainnet or
-          testnet).
+          A badge component that displays the current Stacks network (mainnet or testnet).
         </p>
       </div>
 
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Import</h2>
-        <CodeBlock
-          code={`import { NetworkBadge } from 'stacks-kit';`}
-          language="tsx"
-        />
+        <CodeBlock code={`import { NetworkBadge } from 'stacks-kit';`} language="tsx" />
       </div>
 
       <div className="space-y-4">
@@ -49,21 +45,15 @@ function NetworkIndicator() {
             <tbody className="divide-y">
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">network</td>
-                <td className="px-4 py-2 font-mono text-xs">
-                  "mainnet" | "testnet"
-                </td>
+                <td className="px-4 py-2 font-mono text-xs">"mainnet" | "testnet"</td>
                 <td className="px-4 py-2 font-mono text-xs">required</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  The network to display
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">The network to display</td>
               </tr>
               <tr>
                 <td className="px-4 py-2 font-mono text-xs">className</td>
                 <td className="px-4 py-2 font-mono text-xs">string</td>
                 <td className="px-4 py-2 font-mono text-xs">-</td>
-                <td className="px-4 py-2 text-muted-foreground">
-                  Additional CSS classes
-                </td>
+                <td className="px-4 py-2 text-muted-foreground">Additional CSS classes</td>
               </tr>
             </tbody>
           </table>
@@ -74,12 +64,11 @@ function NetworkIndicator() {
         <h2 className="text-2xl font-semibold">Appearance</h2>
         <ul className="list-inside list-disc space-y-2 text-muted-foreground">
           <li>
-            <strong>Mainnet:</strong> Green badge with success variant and green
-            indicator dot
+            <strong>Mainnet:</strong> Green badge with success variant and green indicator dot
           </li>
           <li>
-            <strong>Testnet:</strong> Yellow/amber badge with warning variant
-            and yellow indicator dot
+            <strong>Testnet:</strong> Yellow/amber badge with warning variant and yellow indicator
+            dot
           </li>
         </ul>
       </div>
@@ -116,8 +105,8 @@ function NetworkIndicator() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">ConnectButton Integration</h2>
         <p className="text-muted-foreground">
-          The ConnectButton component has a built-in <code>showNetwork</code>{' '}
-          prop that displays the NetworkBadge:
+          The ConnectButton component has a built-in <code>showNetwork</code> prop that displays the
+          NetworkBadge:
         </p>
         <CodeBlock
           code={`<ConnectButton showNetwork />
@@ -129,8 +118,8 @@ function NetworkIndicator() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Switching Networks</h2>
         <p className="text-muted-foreground">
-          Users can switch networks using the <code>setNetwork</code> function
-          from <code>useWallet</code>:
+          Users can switch networks using the <code>setNetwork</code> function from{' '}
+          <code>useWallet</code>:
         </p>
         <CodeBlock
           code={`import { useWallet } from 'stacks-kit';
@@ -159,8 +148,8 @@ function NetworkSwitcher() {
       <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Styling</h2>
         <p className="text-muted-foreground">
-          The badge uses the design system Badge component with semantic color
-          variants. You can add custom classes:
+          The badge uses the design system Badge component with semantic color variants. You can add
+          custom classes:
         </p>
         <CodeBlock
           code={`<NetworkBadge

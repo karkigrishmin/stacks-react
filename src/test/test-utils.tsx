@@ -1,18 +1,14 @@
+import { type RenderOptions, render } from '@testing-library/react';
+import type React from 'react';
 import type { ReactElement } from 'react';
-import React from 'react';
-import { render, type RenderOptions } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { useWalletStore, type WalletStore } from '@/stores/wallet-store';
 import { beforeEach } from 'vitest';
+import { useWalletStore, type WalletStore } from '@/stores/wallet-store';
 
 // Initial store state for resetting between tests
 const initialStoreState: Omit<
   WalletStore,
-  | 'setConnecting'
-  | 'setConnected'
-  | 'setDisconnected'
-  | 'setNetwork'
-  | 'setError'
+  'setConnecting' | 'setConnected' | 'setDisconnected' | 'setNetwork' | 'setError'
 > = {
   isConnected: false,
   isConnecting: false,
@@ -35,10 +31,7 @@ export function setupStoreReset() {
 }
 
 // Set connected state for testing
-export function setConnectedState(
-  address: string,
-  btcAddress: string | null = null
-) {
+export function setConnectedState(address: string, btcAddress: string | null = null) {
   useWalletStore.setState({
     isConnected: true,
     isConnecting: false,
@@ -54,16 +47,12 @@ function AllTheProviders({ children }: { children: React.ReactNode }) {
 }
 
 // Custom render with providers
-function customRender(
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>
-) {
+function customRender(ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) {
   return render(ui, { wrapper: AllTheProviders, ...options });
 }
 
 // Helper to wait for async state updates
-export const waitForStateUpdate = () =>
-  new Promise((resolve) => setTimeout(resolve, 0));
+export const waitForStateUpdate = () => new Promise((resolve) => setTimeout(resolve, 0));
 
 // Helper to create mock Stacks transaction
 export function createMockTransaction(overrides = {}) {
@@ -86,10 +75,9 @@ export function createMockBalance(stxAmount: number, sbtcAmount = 0) {
     fungible_tokens:
       sbtcAmount > 0
         ? {
-            'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token::sbtc-token':
-              {
-                balance: String(sbtcAmount * 100_000_000), // Convert to satoshis
-              },
+            'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token::sbtc-token': {
+              balance: String(sbtcAmount * 100_000_000), // Convert to satoshis
+            },
           }
         : {},
   };

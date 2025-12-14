@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { Outlet, Link } from 'react-router-dom';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Sidebar } from './sidebar';
+import { Menu, Moon, Sun, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import { Logo } from '@/components/logo';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Sidebar } from './sidebar';
 
 const THEME_KEY = 'stacks-kit-theme';
 
@@ -37,11 +37,7 @@ export function DocsLayout() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
             <Link to="/">
               <Logo showText />
@@ -54,11 +50,7 @@ export function DocsLayout() {
               onClick={() => setDarkMode((prev) => !prev)}
               aria-label="Toggle theme"
             >
-              {darkMode ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
+              {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </Button>
           </div>
         </div>
@@ -74,7 +66,7 @@ export function DocsLayout() {
         <div
           className={cn(
             'fixed inset-0 z-40 bg-background transition-transform md:hidden',
-            mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+            mobileMenuOpen ? 'translate-x-0' : '-translate-x-full',
           )}
         >
           <div className="pt-14">

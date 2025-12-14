@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router-dom';
 import * as Collapsible from '@radix-ui/react-collapsible';
-import { cn } from '@/lib/utils';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
 interface NavItem {
   title: string;
@@ -69,10 +69,7 @@ function NavItemComponent({ item }: { item: NavItem }) {
           <Collapsible.Trigger className="flex w-full items-center justify-between px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ring)] focus-visible:ring-offset-2 rounded-md">
             {item.title}
             <ChevronDown
-              className={cn(
-                'h-4 w-4 transition-transform duration-200',
-                isOpen && 'rotate-180'
-              )}
+              className={cn('h-4 w-4 transition-transform duration-200', isOpen && 'rotate-180')}
               aria-hidden="true"
             />
           </Collapsible.Trigger>
@@ -87,7 +84,7 @@ function NavItemComponent({ item }: { item: NavItem }) {
                         'block rounded-md px-3 py-1.5 text-sm transition-colors',
                         isActive
                           ? 'bg-muted font-medium text-foreground'
-                          : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground'
+                          : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground',
                       )
                     }
                   >
@@ -112,7 +109,7 @@ function NavItemComponent({ item }: { item: NavItem }) {
             'block rounded-md px-3 py-2 text-sm transition-colors',
             isActive
               ? 'bg-muted font-medium text-foreground'
-              : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground'
+              : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground',
           )
         }
       >

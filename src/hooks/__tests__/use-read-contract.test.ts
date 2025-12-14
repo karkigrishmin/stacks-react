@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { renderHook } from '@testing-library/react';
-import { useReadContract } from '../use-read-contract';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useWalletStore } from '@/stores/wallet-store';
+import { useReadContract } from '../use-read-contract';
 
 // Mock useWallet hook
 vi.mock('../use-wallet', () => ({
@@ -31,7 +31,7 @@ describe('useReadContract', () => {
       useReadContract({
         contract: 'SP000000000000000000002Q6VF78.test-contract',
         functionName: 'get-value',
-      })
+      }),
     );
 
     expect(result.current.isLoading).toBe(true);
@@ -45,7 +45,7 @@ describe('useReadContract', () => {
         contract: 'SP000000000000000000002Q6VF78.test-contract',
         functionName: 'get-value',
         enabled: false,
-      })
+      }),
     );
 
     expect(result.current.isLoading).toBe(false);
@@ -58,7 +58,7 @@ describe('useReadContract', () => {
         contract: 'SP000000000000000000002Q6VF78.test-contract',
         functionName: 'get-value',
         enabled: false,
-      })
+      }),
     );
 
     expect(typeof result.current.refetch).toBe('function');
@@ -69,7 +69,7 @@ describe('useReadContract', () => {
       useReadContract({
         contract: '',
         functionName: 'get-value',
-      })
+      }),
     );
 
     expect(result.current.isLoading).toBe(false);
@@ -81,7 +81,7 @@ describe('useReadContract', () => {
       useReadContract({
         contract: 'SP000000000000000000002Q6VF78.test-contract',
         functionName: '',
-      })
+      }),
     );
 
     expect(result.current.isLoading).toBe(false);
@@ -96,7 +96,7 @@ describe('useReadContract', () => {
         contract: 'ST000000000000000000002AMW42H.test-contract',
         functionName: 'get-value',
         enabled: false,
-      })
+      }),
     );
 
     // Hook should be initialized properly
@@ -111,7 +111,7 @@ describe('useReadContract', () => {
         functionName: 'get-balance',
         args: [],
         enabled: false,
-      })
+      }),
     );
 
     expect(result.current.data).toBeNull();
