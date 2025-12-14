@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { staggerContainer, staggerItem } from '@/lib/animation/variants';
 import { Button } from './ui/button';
 
@@ -36,13 +37,13 @@ export function CTA() {
             className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button size="lg" asChild>
-              <a href="/docs">
+              <Link to="/docs">
                 Read the Docs
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
             <Button variant="ghost" size="lg" asChild>
-              <a href="/docs/overview">View Examples</a>
+              <Link to="/docs/overview">View Examples</Link>
             </Button>
           </motion.div>
         </motion.div>

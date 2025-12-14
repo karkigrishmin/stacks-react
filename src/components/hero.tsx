@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { staggerContainer, staggerItem } from '@/lib/animation/variants';
 import { Button } from './ui/button';
 import { CopyButton } from './ui/copy-button';
@@ -57,10 +58,10 @@ export function Hero() {
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <Button size="lg" asChild>
-              <a href="/docs">
+              <Link to="/docs">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </Button>
             <Button variant="secondary" size="lg" asChild>
               <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
