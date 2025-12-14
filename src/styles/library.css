@@ -81,12 +81,14 @@
 
 /* Legacy variable aliases for existing components */
 :root {
+  /* Theme colors */
   --background: var(--sk-background);
   --background-secondary: var(--sk-background-secondary);
   --foreground: var(--sk-foreground);
   --foreground-secondary: var(--sk-foreground-secondary);
   --foreground-tertiary: var(--sk-foreground-tertiary);
   --border: var(--sk-border);
+  --border-strong: rgba(0, 0, 0, 0.15);
   --card: var(--sk-card);
   --card-elevated: var(--sk-card-elevated);
   --card-foreground: var(--sk-foreground);
@@ -104,11 +106,38 @@
   --destructive-foreground: var(--sk-destructive-foreground);
   --input: var(--sk-input);
   --ring: var(--sk-ring);
-  --radius: var(--sk-radius-md);
+
+  /* Semantic colors */
   --success: var(--sk-success);
   --warning: var(--sk-warning);
   --error: var(--sk-error);
+  --info: #3b82f6;
+
+  /* Brand colors */
   --bitcoin-orange: var(--sk-bitcoin);
+  --bitcoin-orange-light: #ffaa33;
+  --bitcoin-orange-dark: #e8850f;
+  --bitcoin-orange-muted: rgba(247, 147, 26, 0.15);
+  --stacks-purple: 243 100% 64%;
+
+  /* Border radius */
+  --radius: var(--sk-radius-md);
+  --radius-sm: var(--sk-radius-sm);
+  --radius-md: var(--sk-radius-md);
+  --radius-lg: var(--sk-radius-lg);
+  --radius-xl: var(--sk-radius-xl);
+
+  /* Shadows */
+  --shadow-sm: var(--sk-shadow-sm);
+  --shadow-md: var(--sk-shadow-md);
+  --shadow-lg: var(--sk-shadow-lg);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+.dark {
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --bitcoin-orange-muted: rgba(247, 147, 26, 0.2);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
 }
 
 /* ============================================
