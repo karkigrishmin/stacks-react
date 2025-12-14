@@ -1,9 +1,11 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import {
   useTransactionStatus,
   type TxStatus,
 } from '@/hooks/use-transaction-status';
 import { useWallet } from '@/hooks/use-wallet';
+import { Badge } from '@/components/ui/badge';
 import {
   Loader2,
   CheckCircle2,
@@ -11,6 +13,7 @@ import {
   HelpCircle,
   ExternalLink,
 } from 'lucide-react';
+import { fadeIn } from '@/lib/animation/variants';
 
 interface TransactionStatusProps {
   txId: string | null;
@@ -24,51 +27,53 @@ function getExplorerUrl(txId: string, network: 'mainnet' | 'testnet'): string {
   return `${base}/txid/${txId}${chainParam}`;
 }
 
-function getStatusConfig(status: TxStatus | null): {
+type StatusConfig = {
   icon: React.ReactNode;
   text: string;
-  className: string;
-} {
+  variant: 'default' | 'success' | 'error' | 'warning' | 'info';
+};
+
+function getStatusConfig(status: TxStatus | null): StatusConfig {
   switch (status) {
     case 'pending':
       return {
-        icon: <Loader2 className="h-4 w-4 animate-spin" />,
+        icon: <Loader2 className="h-3.5 w-3.5 animate-spin" />,
         text: 'Confirming...',
-        className: 'text-muted-foreground',
+        variant: 'default',
       };
     case 'success':
       return {
-        icon: <CheckCircle2 className="h-4 w-4" />,
+        icon: <CheckCircle2 className="h-3.5 w-3.5" />,
         text: 'Confirmed',
-        className: 'text-green-600 dark:text-green-500',
+        variant: 'success',
       };
     case 'abort_by_response':
     case 'abort_by_post_condition':
       return {
-        icon: <XCircle className="h-4 w-4" />,
+        icon: <XCircle className="h-3.5 w-3.5" />,
         text: 'Failed',
-        className: 'text-destructive',
+        variant: 'error',
       };
     case 'dropped_replace_by_fee':
     case 'dropped_replace_across_fork':
     case 'dropped_too_expensive':
     case 'dropped_stale_garbage_collect':
       return {
-        icon: <XCircle className="h-4 w-4" />,
+        icon: <XCircle className="h-3.5 w-3.5" />,
         text: 'Dropped',
-        className: 'text-yellow-600 dark:text-yellow-500',
+        variant: 'warning',
       };
     case 'not_found':
       return {
-        icon: <HelpCircle className="h-4 w-4" />,
+        icon: <HelpCircle className="h-3.5 w-3.5" />,
         text: 'Not found',
-        className: 'text-muted-foreground',
+        variant: 'default',
       };
     default:
       return {
-        icon: <Loader2 className="h-4 w-4 animate-spin" />,
+        icon: <Loader2 className="h-3.5 w-3.5 animate-spin" />,
         text: 'Loading...',
-        className: 'text-muted-foreground',
+        variant: 'default',
       };
   }
 }
@@ -88,8 +93,10 @@ export function TransactionStatus({
   if (error) {
     return (
       <div className={cn('flex items-center gap-2 text-sm', className)}>
-        <XCircle className="h-4 w-4 text-destructive" />
-        <span className="text-destructive">Error checking status</span>
+        <Badge variant="error" className="gap-1.5">
+          <XCircle className="h-3.5 w-3.5" />
+          Error checking status
+        </Badge>
       </div>
     );
   }
@@ -98,20 +105,31 @@ export function TransactionStatus({
     isLoading && !status ? getStatusConfig(null) : getStatusConfig(status);
 
   return (
-    <div className={cn('flex items-center gap-2 text-sm', className)}>
-      <span className={config.className}>{config.icon}</span>
-      <span className={config.className}>{config.text}</span>
-      {showExplorerLink && txId && (
-        <a
-          href={getExplorerUrl(txId, network)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ExternalLink className="h-3 w-3" />
-          <span className="sr-only">View on explorer</span>
-        </a>
-      )}
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={status || 'loading'}
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className={cn('flex items-center gap-2 text-sm', className)}
+      >
+        <Badge variant={config.variant} className="gap-1.5">
+          {config.icon}
+          {config.text}
+        </Badge>
+        {showExplorerLink && txId && (
+          <a
+            href={getExplorerUrl(txId, network)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-[var(--foreground-tertiary)] transition-colors hover:text-[var(--bitcoin-orange)]"
+          >
+            <ExternalLink className="h-3.5 w-3.5" />
+            <span className="sr-only">View on explorer</span>
+          </a>
+        )}
+      </motion.div>
+    </AnimatePresence>
   );
 }

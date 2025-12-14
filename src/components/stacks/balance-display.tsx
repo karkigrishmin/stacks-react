@@ -1,5 +1,8 @@
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { useBalance } from '@/hooks/use-balance';
+import { Skeleton } from '@/components/ui/skeleton';
+import { fadeIn } from '@/lib/animation/variants';
 
 interface BalanceDisplayProps {
   address?: string;
@@ -19,27 +22,34 @@ export function BalanceDisplay({
   }
 
   if (isLoading) {
-    return (
-      <span
-        className={cn('animate-pulse text-sm text-muted-foreground', className)}
-      >
-        Loading...
-      </span>
-    );
+    return <Skeleton className={cn('h-5 w-16', className)} />;
   }
 
   if (isError) {
     return (
-      <span className={cn('text-sm text-destructive', className)}>
+      <span className={cn('text-sm text-[var(--error)]', className)}>
         {error?.message || 'Failed to load'}
       </span>
     );
   }
 
   return (
-    <span className={cn('text-sm font-medium', className)}>
-      {balance}
-      {showSymbol && <span className="ml-1 text-muted-foreground">STX</span>}
-    </span>
+    <AnimatePresence mode="wait">
+      <motion.span
+        key="balance"
+        variants={fadeIn}
+        initial="hidden"
+        animate="visible"
+        className={cn(
+          'text-sm font-medium text-[var(--foreground)]',
+          className
+        )}
+      >
+        {balance}
+        {showSymbol && (
+          <span className="ml-1 text-[var(--foreground-secondary)]">STX</span>
+        )}
+      </motion.span>
+    </AnimatePresence>
   );
 }

@@ -48,9 +48,9 @@ describe('AddressDisplay', () => {
   it('should not show copy icon when not copyable', () => {
     render(<AddressDisplay address={MOCK_STX_ADDRESS} copyable={false} />);
 
-    // The button should be disabled
-    const button = screen.getByRole('button');
-    expect(button).toBeDisabled();
+    // When not copyable, it renders as a span (not a button)
+    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    expect(screen.getByText('ST1P...GZGM')).toBeInTheDocument();
   });
 
   it('should copy address to clipboard on click', async () => {
@@ -88,8 +88,9 @@ describe('AddressDisplay', () => {
 
     render(<AddressDisplay address={MOCK_STX_ADDRESS} copyable={false} />);
 
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
+    // When not copyable, it renders as a span (not clickable)
+    const addressText = screen.getByText('ST1P...GZGM');
+    fireEvent.click(addressText);
 
     expect(mockWriteText).not.toHaveBeenCalled();
   });

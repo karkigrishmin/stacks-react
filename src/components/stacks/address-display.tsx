@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import { buttonTap } from '@/lib/animation/variants';
 
 interface AddressDisplayProps {
   address: string;
@@ -42,26 +44,39 @@ export function AddressDisplay({
     }
   };
 
+  // Use span when not copyable to avoid button-in-button nesting issues
+  if (!copyable) {
+    return (
+      <span
+        className={cn(
+          'inline-flex items-center gap-1.5 font-mono text-sm text-[var(--foreground)]',
+          className
+        )}
+      >
+        {displayAddress}
+      </span>
+    );
+  }
+
   return (
-    <button
+    <motion.button
       onClick={handleCopy}
-      disabled={!copyable}
+      whileTap={buttonTap}
+      aria-label="Copy address to clipboard"
       className={cn(
-        'inline-flex items-center gap-1.5 font-mono text-sm',
-        copyable && 'cursor-pointer transition-colors hover:text-primary',
+        'inline-flex items-center gap-1.5 rounded-[var(--radius-sm)] px-2 py-1 font-mono text-sm text-[var(--foreground)] transition-colors',
+        'cursor-pointer hover:bg-[var(--background-secondary)] active:bg-[var(--background-secondary)]',
         className
       )}
     >
       <span>{displayAddress}</span>
-      {copyable && (
-        <span className="text-muted-foreground">
-          {copied ? (
-            <Check className="h-3.5 w-3.5 text-green-500" />
-          ) : (
-            <Copy className="h-3.5 w-3.5" />
-          )}
-        </span>
-      )}
-    </button>
+      <span className="text-[var(--foreground-tertiary)]">
+        {copied ? (
+          <Check className="h-3.5 w-3.5 text-[var(--success)]" />
+        ) : (
+          <Copy className="h-3.5 w-3.5" />
+        )}
+      </span>
+    </motion.button>
   );
 }

@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { ChevronDown, LogOut, Copy, ExternalLink } from 'lucide-react';
+import {
+  ChevronDown,
+  LogOut,
+  Copy,
+  ExternalLink,
+  Wallet,
+  Loader2,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -57,11 +64,22 @@ export function ConnectButton({
     return (
       <>
         <Button
+          variant="primary"
           onClick={() => setModalOpen(true)}
           disabled={isConnecting}
-          className={cn(className)}
+          className={cn('gap-2', className)}
         >
-          {isConnecting ? 'Connecting...' : label}
+          {isConnecting ? (
+            <>
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Connecting...
+            </>
+          ) : (
+            <>
+              <Wallet className="h-4 w-4" />
+              {label}
+            </>
+          )}
         </Button>
         <WalletModal open={modalOpen} onOpenChange={setModalOpen} />
       </>
@@ -71,41 +89,53 @@ export function ConnectButton({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className={cn('gap-2', className)}>
+        <Button variant="secondary" className={cn('gap-2', className)}>
           <div className="flex items-center gap-2">
             {showNetwork && <NetworkBadge network={network} />}
             {showBalance && <BalanceDisplay />}
             {address && <AddressDisplay address={address} copyable={false} />}
           </div>
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown className="h-4 w-4 text-[var(--foreground-secondary)]" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent
+        align="end"
+        className="w-56 border-[var(--border)] bg-[var(--card-elevated)]"
+      >
         <DropdownMenuLabel>
           <div className="flex flex-col gap-1">
-            <span className="text-xs text-muted-foreground">Connected</span>
+            <span className="text-xs text-[var(--foreground-tertiary)]">
+              Connected
+            </span>
             {address && (
               <AddressDisplay
                 address={address}
                 truncateLength={6}
                 copyable={false}
+                className="px-0"
               />
             )}
           </div>
         </DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleCopyAddress}>
+        <DropdownMenuSeparator className="bg-[var(--border)]" />
+        <DropdownMenuItem
+          onClick={handleCopyAddress}
+          className="cursor-pointer text-[var(--foreground)] focus:bg-[var(--background-secondary)] focus:text-[var(--foreground)]"
+        >
           <Copy className="mr-2 h-4 w-4" />
           Copy Address
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleViewExplorer}>
+        <DropdownMenuItem
+          onClick={handleViewExplorer}
+          className="cursor-pointer text-[var(--foreground)] focus:bg-[var(--background-secondary)] focus:text-[var(--foreground)]"
+        >
           <ExternalLink className="mr-2 h-4 w-4" />
           View on Explorer
         </DropdownMenuItem>
-        <DropdownMenuSeparator />
+        <DropdownMenuSeparator className="bg-[var(--border)]" />
         <DropdownMenuItem
           onClick={disconnect}
-          className="text-destructive focus:text-destructive"
+          className="focus:bg-[var(--error)]/10 cursor-pointer text-[var(--error)] focus:text-[var(--error)]"
         >
           <LogOut className="mr-2 h-4 w-4" />
           Disconnect

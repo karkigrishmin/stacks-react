@@ -87,7 +87,7 @@ export function WalletDemo({ className, paused = false }: WalletDemoProps) {
         {/* Success state overlay */}
         <div
           className={cn(
-            'absolute inset-0 flex flex-col items-center justify-center bg-card/95 backdrop-blur-sm',
+            'bg-card/95 absolute inset-0 flex flex-col items-center justify-center backdrop-blur-sm',
             '[animation:wallet-demo-success_6s_ease-in-out_infinite]',
             paused && '[animation-play-state:paused]',
             'group-hover:[animation-play-state:paused]'
