@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/karkigrishmin/stacks-react/compare/v1.0.0...v1.0.1) (2025-12-14)
+
+
+### Bug Fixes
+
+* **docs:** add yarn and pnpm install commands to README ([d3c32f0](https://github.com/karkigrishmin/stacks-react/commit/d3c32f015974b5475877f77f51172dfc169872de))
+
 # 1.0.0 (2025-12-14)
 
 
