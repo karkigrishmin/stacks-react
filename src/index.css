@@ -1,83 +1,236 @@
+/* Geist Font Imports */
+@import '@fontsource/geist-sans/400.css';
+@import '@fontsource/geist-sans/500.css';
+@import '@fontsource/geist-sans/600.css';
+@import '@fontsource/geist-sans/700.css';
+@import '@fontsource/geist-mono/400.css';
+@import '@fontsource/geist-mono/500.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    /* Brand Colors */
+    --bitcoin-orange: #f7931a;
+    --bitcoin-orange-light: #ffaa33;
+    --bitcoin-orange-dark: #e8850f;
+    --bitcoin-orange-muted: rgba(247, 147, 26, 0.15);
+    --stacks-purple: #5546ff;
+    --stacks-purple-light: #7c65ff;
+
+    /* Semantic Colors */
+    --success: #22c55e;
+    --warning: #eab308;
+    --error: #ef4444;
+    --info: #3b82f6;
+
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
     --radius: 0.5rem;
 
-    /* stacks-kit brand colors */
-    --stacks-purple: 265 83% 57%;
-    --bitcoin-orange: 32 95% 53%;
-    --success: 142 76% 36%;
-    --warning: 48 96% 53%;
+    /* Animation Timing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Animation Durations */
+    --duration-fast: 150ms;
+    --duration-normal: 250ms;
+    --duration-slow: 400ms;
+    --duration-slower: 600ms;
+
+    /* Light Theme (default for :root, but .dark is applied by default) */
+    --background: #fafafa;
+    --background-secondary: #f5f5f5;
+    --card: #ffffff;
+    --card-elevated: #ffffff;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.15);
+    --foreground: #0d0d0f;
+    --foreground-secondary: rgba(0, 0, 0, 0.65);
+    --foreground-tertiary: rgba(0, 0, 0, 0.45);
+    --primary: var(--bitcoin-orange);
+    --primary-foreground: #ffffff;
+
+    /* Shadows (Light) */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+
+    /* Code Syntax Highlighting (Light) */
+    --code-bg: #1e1e1e;
+    --code-text: rgba(255, 255, 255, 0.92);
+    --code-keyword: #c792ea;
+    --code-string: #c3e88d;
+    --code-function: #82aaff;
+    --code-comment: rgba(255, 255, 255, 0.45);
+    --code-number: #f78c6c;
+    --code-operator: rgba(255, 255, 255, 0.65);
+    --code-variable: #f7931a;
+
+    /* Legacy shadcn compatibility */
+    --card-foreground: var(--foreground);
+    --popover: var(--card);
+    --popover-foreground: var(--foreground);
+    --secondary: var(--background-secondary);
+    --secondary-foreground: var(--foreground);
+    --muted: var(--background-secondary);
+    --muted-foreground: var(--foreground-secondary);
+    --accent: var(--background-secondary);
+    --accent-foreground: var(--foreground);
+    --destructive: var(--error);
+    --destructive-foreground: #ffffff;
+    --input: var(--border);
+    --ring: var(--bitcoin-orange);
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    /* Dark Theme Palette*/
+    --background: #0d0d0f;
+    --background-secondary: #141418;
+    --card: #1a1a1f;
+    --card-elevated: #222228;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
+    --foreground: rgba(255, 255, 255, 0.92);
+    --foreground-secondary: rgba(255, 255, 255, 0.65);
+    --foreground-tertiary: rgba(255, 255, 255, 0.45);
+    --primary: var(--bitcoin-orange);
+    --primary-foreground: #0d0d0f;
 
-    /* stacks-kit brand colors (same in dark mode) */
-    --stacks-purple: 265 83% 57%;
-    --bitcoin-orange: 32 95% 53%;
-    --success: 142 76% 36%;
-    --warning: 48 96% 53%;
+    /* Code Syntax Highlighting */
+    --code-bg: #0d0d0f;
+    --code-text: rgba(255, 255, 255, 0.92);
+    --code-keyword: #c792ea;
+    --code-string: #c3e88d;
+    --code-function: #82aaff;
+    --code-comment: rgba(255, 255, 255, 0.45);
+    --code-number: #f78c6c;
+    --code-operator: rgba(255, 255, 255, 0.65);
+    --code-variable: #f7931a;
+
+    /* Shadows (Dark) */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+
+    /* Legacy shadcn compatibility */
+    --card-foreground: var(--foreground);
+    --popover: var(--card-elevated);
+    --popover-foreground: var(--foreground);
+    --secondary: var(--background-secondary);
+    --secondary-foreground: var(--foreground);
+    --muted: var(--background-secondary);
+    --muted-foreground: var(--foreground-secondary);
+    --accent: var(--background-secondary);
+    --accent-foreground: var(--foreground);
+    --destructive: var(--error);
+    --destructive-foreground: #ffffff;
+    --input: var(--border);
+    --ring: var(--bitcoin-orange);
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    transition:
+      background-color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family:
+      'Geist Sans',
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family:
+      'Geist Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+      monospace;
+  }
+}
+
+/* Gradient Text Utilities */
+@layer utilities {
+  .gradient-text-bitcoin {
+    background: linear-gradient(135deg, #f7931a 0%, #ffaa33 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-brand {
+    background: linear-gradient(135deg, #f7931a 0%, #5546ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow Effects */
+  .glow-bitcoin {
+    box-shadow:
+      0 0 20px rgba(247, 147, 26, 0.3),
+      0 0 40px rgba(247, 147, 26, 0.15);
+  }
+
+  .glow-card-hover:hover {
+    box-shadow: 0 0 30px rgba(247, 147, 26, 0.1);
+  }
+
+  .glow-stacks {
+    box-shadow:
+      0 0 20px rgba(85, 70, 255, 0.3),
+      0 0 40px rgba(85, 70, 255, 0.15);
+  }
+
+  /* Hero Gradient Background */
+  .bg-hero-gradient {
+    background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      rgba(247, 147, 26, 0.15) 0%,
+      transparent 70%
+    );
+  }
+
+  /* Backdrop Blur */
+  .backdrop-blur-modal {
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .backdrop-blur-nav {
+    backdrop-filter: blur(12px);
+    background: rgba(13, 13, 15, 0.8);
   }
 }
 
 /* Wallet Demo Animation Keyframes */
 @keyframes wallet-demo {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
     transform: scale(0.95);
   }
@@ -85,12 +238,24 @@
     opacity: 1;
     transform: scale(1);
   }
-  8% { --wallet-1-opacity: 1; }
-  12% { --wallet-2-opacity: 1; }
-  33% { --selected-opacity: 1; }
-  42% { --loading-opacity: 1; }
-  58% { --success-opacity: 1; }
-  67% { --connected-opacity: 1; }
+  8% {
+    --wallet-1-opacity: 1;
+  }
+  12% {
+    --wallet-2-opacity: 1;
+  }
+  33% {
+    --selected-opacity: 1;
+  }
+  42% {
+    --loading-opacity: 1;
+  }
+  58% {
+    --success-opacity: 1;
+  }
+  67% {
+    --connected-opacity: 1;
+  }
   92% {
     opacity: 1;
     transform: scale(1);
@@ -102,36 +267,104 @@
 }
 
 @keyframes wallet-demo-wallet-1 {
-  0%, 7% { opacity: 0; transform: translateY(8px); }
-  12%, 92% { opacity: 1; transform: translateY(0); }
-  97%, 100% { opacity: 0; transform: translateY(8px); }
+  0%,
+  7% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  12%,
+  92% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  97%,
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 }
 
 @keyframes wallet-demo-wallet-2 {
-  0%, 11% { opacity: 0; transform: translateY(8px); }
-  16%, 92% { opacity: 1; transform: translateY(0); }
-  97%, 100% { opacity: 0; transform: translateY(8px); }
+  0%,
+  11% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  16%,
+  92% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  97%,
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 }
 
 @keyframes wallet-demo-select {
-  0%, 32% { opacity: 0; }
-  35%, 40% { opacity: 1; }
-  42%, 100% { opacity: 0; }
+  0%,
+  32% {
+    opacity: 0;
+  }
+  35%,
+  40% {
+    opacity: 1;
+  }
+  42%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes wallet-demo-loading {
-  0%, 40% { opacity: 0; }
-  43%, 56% { opacity: 1; }
-  58%, 100% { opacity: 0; }
+  0%,
+  40% {
+    opacity: 0;
+  }
+  43%,
+  56% {
+    opacity: 1;
+  }
+  58%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes wallet-demo-success {
-  0%, 56% { opacity: 0; transform: scale(0.8); }
-  60%, 92% { opacity: 1; transform: scale(1); }
-  97%, 100% { opacity: 0; transform: scale(0.8); }
+  0%,
+  56% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60%,
+  92% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  97%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
 }
 
 @keyframes wallet-demo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Skeleton shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
