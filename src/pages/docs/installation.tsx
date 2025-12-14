@@ -11,6 +11,18 @@ export function DocsInstallation() {
       </div>
 
       <div className="space-y-4">
+        <h2 className="text-2xl font-semibold">Starter Template</h2>
+        <p className="text-muted-foreground">Clone the example repo to get started quickly:</p>
+        <CodeBlock
+          code={`git clone https://github.com/karkigrishmin/stacks-kit-example.git
+cd stacks-kit-example
+npm install
+npm run dev`}
+          language="bash"
+        />
+      </div>
+
+      <div className="space-y-4">
         <h2 className="text-2xl font-semibold">Prerequisites</h2>
         <ul className="list-inside list-disc space-y-2 text-muted-foreground">
           <li>React 18 or later</li>

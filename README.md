@@ -6,7 +6,7 @@
 
 React toolkit for Stacks blockchain. Think RainbowKit, but for Bitcoin L2.
 
-**[Documentation](https://stacks-kit.vercel.app/docs)** · **[Demo](https://stacks-kit.vercel.app/)**
+**[Documentation](https://stacks-kit.vercel.app/docs)** · **[Demo](https://stacks-kit.vercel.app/)** · **[Example Repo](https://github.com/karkigrishmin/stacks-kit-example)**
 
 ## Install
 
