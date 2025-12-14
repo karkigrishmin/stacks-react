@@ -1,30 +1,43 @@
 # stacks-kit
 
+[![npm version](https://img.shields.io/npm/v/stacks-kit.svg)](https://www.npmjs.com/package/stacks-kit)
+[![npm downloads](https://img.shields.io/npm/dm/stacks-kit.svg)](https://www.npmjs.com/package/stacks-kit)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 React toolkit for Stacks blockchain. Think RainbowKit, but for Bitcoin L2.
 
 ## Install
 
 ```bash
-git clone https://github.com/yourusername/stacks-kit.git
-cd stacks-kit
-bun install
-bun run dev
+npm install stacks-kit @stacks/connect @stacks/transactions @stacks/network
 ```
-
-Open http://localhost:5173 for the demo, or http://localhost:5173/docs for documentation.
 
 ## What's Included
 
 **Hooks** — `useWallet`, `useBalance`, `useSbtcBalance`, `useStxTransfer`, `useContractCall`, `useReadContract`, `useTransactionStatus`
 
-**Components** — `ConnectButton`, `WalletModal`, `AddressDisplay`, `BalanceDisplay`, `NetworkBadge`, `TransactionStatus`
+**Components** — `ConnectButton`, `WalletModal`, `AddressDisplay`, `BalanceDisplay`, `NetworkBadge`, `TransactionStatus`, `StacksKitProvider`
+
+## Quick Start
+
+```tsx
+import { StacksKitProvider, ConnectButton } from 'stacks-kit';
+
+function App() {
+  return (
+    <StacksKitProvider>
+      <ConnectButton />
+    </StacksKitProvider>
+  );
+}
+```
 
 ## Usage
 
 ### Connect a Wallet
 
 ```tsx
-import { useWallet } from '@/hooks';
+import { useWallet } from 'stacks-kit';
 
 function App() {
   const { isConnected, address, connect, disconnect } = useWallet();
@@ -45,7 +58,7 @@ function App() {
 ### Fetch Balance
 
 ```tsx
-import { useBalance } from '@/hooks';
+import { useBalance } from 'stacks-kit';
 
 function Balance() {
   const { balance, isLoading } = useBalance();
@@ -58,7 +71,7 @@ function Balance() {
 ### Send STX
 
 ```tsx
-import { useStxTransfer } from '@/hooks';
+import { useStxTransfer } from 'stacks-kit';
 
 function SendButton() {
   const { transfer, isLoading, txId } = useStxTransfer();
@@ -82,7 +95,7 @@ function SendButton() {
 ### Call a Contract
 
 ```tsx
-import { useContractCall } from '@/hooks';
+import { useContractCall } from 'stacks-kit';
 import { uintCV } from '@stacks/transactions';
 
 function MintButton() {
@@ -103,36 +116,36 @@ function MintButton() {
 ### Pre-built UI
 
 ```tsx
-import { ConnectButton } from '@/components/stacks';
+import { ConnectButton } from 'stacks-kit';
 
 // Full-featured connect button with dropdown
 <ConnectButton showBalance showNetwork />
 ```
 
 ```tsx
-import { AddressDisplay } from '@/components/stacks';
+import { AddressDisplay } from 'stacks-kit';
 
 // Truncated address with copy
 <AddressDisplay address="SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKQ9KJ3F" copyable />
 ```
 
-## Project Structure
+## Development
 
-```
-src/
-├── components/
-│   ├── stacks/    # Wallet & blockchain components
-│   └── ui/        # Base UI primitives
-├── hooks/         # React hooks
-├── stores/        # Zustand state
-└── pages/docs/    # Documentation
+```bash
+git clone https://github.com/karkigrishmin/stacks-react.git
+cd stacks-react
+bun install
+bun run dev
 ```
 
-## Scripts
+Open http://localhost:5173 for the demo, or http://localhost:5173/docs for documentation.
+
+### Scripts
 
 ```bash
 bun run dev           # Dev server
 bun run build         # Production build
+bun run build:lib     # Build npm package
 bun run test          # Run tests (watch mode)
 bun run test:run      # Run tests once
 bun run test:coverage # Coverage report
